@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Genesis Manual 0.2: Saving and Exporting</title>
+
+<meta name="description" content="Genesis Manual 0.2: Saving and Exporting">
+<meta name="keywords" content="Genesis Manual 0.2: Saving and Exporting">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Conclusion.html#Conclusion" rel="next" title="Conclusion">
+<link href="Creating-PCA-Plots.html#Creating-PCA-Plots" rel="prev" title="Creating PCA Plots">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Saving-and-Exporting"></a>
+<div class="header">
+<p>
+Next: <a href="Conclusion.html#Conclusion" accesskey="n" rel="next">Conclusion</a>, Previous: <a href="Creating-PCA-Plots.html#Creating-PCA-Plots" accesskey="p" rel="prev">Creating PCA Plots</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<hr>
+
+<a name="Saving_002c-Loading-and-Exporting-Projects"></a>
+<h2 class="chapter">5 Saving, Loading and Exporting Projects</h2>
+
+<a name="Saving-a-Project"></a>
+<h3 class="section">5.1 Saving a Project</h3>
+
+<p>To save a project currently in use, click the <code>Save Project</code> button on the toolbar or click <code>File</code> &rarr; <code>Save Project</code>. Enter a filename and navigate to the location you wish to save the file and click <code>Save</code>.
+</p>
+<p>We recommend regular saving. Although, Genesis is stable, like other
+software it may crash and saving is easy.
+</p>
+<p><b>Please note that in the Genesis GUI, that you may have several
+projects open at once. Saving only saves the current project!</b>
+</p>
+
+
+
+<a name="Loading-a-Project"></a>
+<h3 class="section">5.2 Loading a Project</h3>
+
+<p>To load a project previously saved, click the <code>Load Project</code> button on the toolbar or click <code>File</code> &rarr; <code>Load Project</code>. Navigate to and select the file you wish to load and click <code>Load</code>.
+</p>
+<a name="Exporting-Graphs"></a>
+<h3 class="section">5.3 Exporting Graphs</h3>
+
+<p>Once you are satisfied with the graph you are currently working on, you can export the graph as an image file (.png) or in a PDF. To do so, click the <code>Export</code> button on the toolbar or click <code>File</code> &rarr; <code>Export</code>.
+</p>
+<p>From the dialog that opens, select whether to export as a PNG, SVG image
+or as a PDF, then navigate to the location you wish to save the file and
+click <code>OK</code>.
+</p>
+<a name="Notes-on-exporting-as-a-PDF"></a>
+<h4 class="subsection">5.3.1 Notes on exporting as a PDF</h4>
+
+<p>Genesis will export the graph as it is on the screen in front of you, and will scale this image to fit on the width of an A4 page. This may cause larger admixture project&rsquo;s images to be of too high detail to view all the detail on the monitor of your computer all at once. This is normal and expected. The detail will be stored there - it may be necessary to zoom in to view it all &ndash; and if the image is printed, the detail will be there (assuming the printer is of high enough quality).
+</p>
+<a name="Notes-on-exporting-as-a-PNG-image"></a>
+<h4 class="subsection">5.3.2 Notes on exporting as a PNG image</h4>
+
+<p>PNG (Portable Network Graphics) is a cross-platform image file format that can be handled by almost all good image viewers and editors. When exporting as a PNG file, note that the image will be the same size as it is on the screen as you export it. This means that resizing the Genesis window between PCA exports will create different sized images (Admixture sizes are determined by the options in the <code>Appearance Options</code>). This is important as PNG images do not scale up, i.e. a smaller image will become blurry if it is stretched too big. Keep this in mind when exporting as a PNG image.
+</p>
+
+<a name="Error-messages"></a>
+<h3 class="section">5.4 Error messages</h3>
+
+<ul>
+<li> 1: Only 1 column in input file &ndash; not allowed 
+</li><li> 2: The admix or phenotpe file has a varying number of columns
+</li><li> 3: Java gives a NumberFormat error in the input file. 
+</li><li> 5: File is not found
+
+</li><li> 102: I think you have a plink eigenvector file but a line does not parse.
+
+</li><li> 300: PCA read is not in SMARTPCA format.
+
+<p>Hint: if you have a PLINK file make sure that your fam file
+           is in the directory.
+</p>
+</li><li> 400: Error in data file: file may be empty
+
+
+
+</li></ul>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Conclusion.html#Conclusion" accesskey="n" rel="next">Conclusion</a>, Previous: <a href="Creating-PCA-Plots.html#Creating-PCA-Plots" accesskey="p" rel="prev">Creating PCA Plots</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+
+
+
+</body>
+</html>

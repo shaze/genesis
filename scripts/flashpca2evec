@@ -1,0 +1,68 @@
+#!/usr/bin/python
+# This script converts the output of the flashpca into eigenstrat evec format
+# By default flashpca produces two files eigenvectors.txt and eigenvals.txt
+# so be default flashpca2evec uses these as input
+# the --eigenvec and --eigenval flags can specify alternate names
+# the --out flag is mandatory and specifies where output should go
+
+
+
+
+import re
+import sys
+import os
+import os.path
+import argparse
+import string
+
+def setup():
+    parser = argparse.ArgumentParser(description='Convert flashpca format  into evec format')
+
+    parser.add_argument('--fam',dest='fam',action='store',required=True)
+    parser.add_argument('--eigenvec',dest='eigenvec',action='store',default="eigenvectors.txt")
+    parser.add_argument('--eigenval',dest='eigenval',action='store',default="eigenvalues.txt")
+    parser.add_argument('--out',dest='out',action='store',required=True)
+
+    args = parser.parse_args()
+
+
+    return args
+
+
+args=setup()
+
+
+# Get eigenvalues if there are
+eigenhead="# "
+if os.path.exists(args.eigenval):
+    f = open(args.eigenval)
+    
+    for x in f:
+        eigenhead = eigenhead + x.rstrip("\n")+" "
+    f.close()
+
+
+outf = open(args.out,"w")
+outf.write("%s\n"%eigenhead)
+
+famf = open(args.fam)
+eigf = open(args.eigenvec)
+
+for indiv in famf:
+    vector = eigf.readline()
+    if not vector:
+        sys.exit("Insufficient lines in <%s>\n"%args.eigenvec)
+    mm = re.search("^\s*(\S+)\s+(\S+)\s*",indiv)
+    if not mm:
+        sys.exit("Can't parse line <%s> in fam file\n"%args.fam)
+    outf.write("%s:%s\t%s"%(mm.group(1),mm.group(2),vector))
+line = eigf.readline()
+if len(line)>1:
+    sys.exit("Extra lines in <%s>\n"%args.eigenvec)
+
+famf.close()
+eigf.close()
+outf.close()
+
+
+

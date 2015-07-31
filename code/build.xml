@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<project name="Genesis">
+
+
+<javac srcdir="src"
+         destdir="build"
+         classpath="lib/batik-anim.jar:lib/batik-awt-util.jar:lib/batik-bridge.jar:lib/batik-codec.jar:lib/batik-css.jar:lib/batik-dom.jar:lib/batik-ext.jar:lib/batik-extension.jar:lib/batik-gui-util.jar:lib/batik-gvt.jar:lib/batik-parser.jar:lib/batik-rasterizer.jar:lib/batik-script.jar:lib/batik-squiggle.jar:lib/batik-svg-dom.jar:lib/batik-svggen.jar:lib/batik-swing.jar:lib/batik-transcoder.jar:lib/batik-util.jar:lib/batik-xml.jar:lib/batik.jar:lib/commands.jar:lib/equinox.jar:lib/itext.jar:lib/jface.jar:lib/jfreesvg-1.7.jar:lib/js.jar:lib/osgi.jar:lib/pdf-transcoder.jar:lib/swt-linux32-4.3.jar:lib/swt-linux32-4.4.jar:lib/swt-linux64-4.3.jar:lib/swt-linux64-4.4.jar:lib/swt-osx32-4.3.jar:lib/swt-osx32-4.4.jar:lib/swt-osx64-4.3.jar:lib/swt-osx64-4.4.jar:lib/swt-win32-4.3.jar:lib/swt-win32-4.4.jar:lib/swt-win64-4.3.jar:lib/swt-win64-4.4.jar:lib/swtjar.jar:lib/workbench.jar:lib/xalan-2.6.0.jar:lib/xerces_2_5_0.jar:lib/xml-apis-ext.jar:lib/xml-apis.jar"
+         debug="on"
+         source="1.8"
+  />  
+
+	<taskdef name="swtjar" classname="org.swtjar.ant.SWTJarTask"
+		classpath="./lib/swtjar.jar" />
+
+
+	<!-- Package cross platform SWT Jar -->
+	<swtjar jarfile="./build/jars/Genesis.jar" targetmainclass="main.Main"
+		swtversion="4.4">
+		<!-- Source Classes -->
+		<fileset dir="./bin" includes="**/*.class" />
+
+		<!-- SWT Jars -->
+		<fileset dir="./lib" includes="swt-*-4.4.jar" />
+
+		<!-- Include Images -->
+		<fileset dir="./bin" includes="**/*.png" />
+
+		<!-- External Library Classes -->
+		<!-- menus -->
+		<zipfileset excludes="META-INF/*.SF" src="lib/jface.jar" />
+		<zipfileset excludes="META-INF/*.SF" src="lib/equinox.jar" />
+		<zipfileset excludes="META-INF/*.SF" src="lib/osgi.jar" />
+		<zipfileset excludes="META-INF/*.SF" src="lib/commands.jar" />
+		<zipfileset excludes="META-INF/*.SF" src="lib/workbench.jar" />
+		<!-- itext -->
+		<zipfileset excludes="META-INF/*.MF" src="lib/itext.jar" />
+		<!-- jfreesvg -->
+		<zipfileset excludes="META-INF/*.MF" src="lib/jfreesvg-1.7.jar" />
+		<!-- batik (needed to convert SVG to PDF) -->
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-ext.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-dom.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-css.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-svg-dom.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-gvt.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-parser.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-script.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-bridge.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-swing.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-gui-util.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-awt-util.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-codec.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-util.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-svggen.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-xml.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/xerces_2_5_0.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/xml-apis.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/xalan-2.6.0.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/xml-apis-ext.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/js.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-squiggle.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/pdf-transcoder.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-rasterizer.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-anim.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-extension.jar" />
+		<zipfileset excludes="META-INF/*.MF" src="lib/batik-transcoder.jar" />
+
+
+	</swtjar>
+
+</project>

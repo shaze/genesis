@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Genesis Manual 0.2: Creating Structure Plots</title>
+
+<meta name="description" content="Genesis Manual 0.2: Creating Structure Plots">
+<meta name="keywords" content="Genesis Manual 0.2: Creating Structure Plots">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Creating-PCA-Plots.html#Creating-PCA-Plots" rel="next" title="Creating PCA Plots">
+<link href="Installing-and-Running-Genesis.html#Installing-and-Running-Genesis" rel="prev" title="Installing and Running Genesis">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Creating-Structure-Plots"></a>
+<div class="header">
+<p>
+Next: <a href="Creating-PCA-Plots.html#Creating-PCA-Plots" accesskey="n" rel="next">Creating PCA Plots</a>, Previous: <a href="Installing-and-Running-Genesis.html#Installing-and-Running-Genesis" accesskey="p" rel="prev">Installing and Running Genesis</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<hr>
+
+<a name="Structure-Plots"></a>
+<h2 class="chapter">3 Structure Plots</h2>
+
+
+<a name="Data-input-format"></a>
+<h3 class="section">3.1 Data input format</h3>
+
+<p><code>Genesis</code> requires two input files and an optional  third file:
+</p>
+<ul>
+<li> An <em>admixture</em> file which contains on each line the
+estimated ancestral proportions of each individual.  Typically, this
+would be produced by a program like Admixture (e.g, and admixture Q
+file), or CLUMPP, the output formats of which Genesis supports
+natively. For example, an Admixture Q file for <em>K</em>=4, contains four
+columns. Provided the input is a legal format, <code>Genesis</code> will
+automatically work out what input file it is, and what the <em>K</em>
+value is. Instructions on using the <code>structure2CLUMPP</code> script which
+can be used for Structure input files is described later.
+
+</li><li> A plink-style <em>fam</em> file. The first two columns must uniquely
+identify the individuals (the first column is usually the family
+identifier, the second the individual identifier). See the plink manual
+for further description. The <em>j</em>-th line
+of this fam file describes the <em>j</em>-th individual in the admixture
+file. This all that <code>Genesis</code> requires, although <em>fam</em> files
+typically have other columns as well.
+
+</li><li> Optionally, a phenotype file: again, the first two columns
+indentify the individual, and subsequent columns label the individuals
+(e.g., case/control, male/female, population group, language, etc). The
+individual identifiers should be the same as in the fam file: each
+individual in the fam file should also be in the phentoype file, but
+there is no problem in having individuals in the phenotype file who are
+not in the fam file. The order of entries in the phenotype file need not
+be the same as in the fam file. You could use the same file as the fam
+and the phenotype file.
+
+</li></ul>
+
+
+
+<a name="Inputting-Data"></a>
+<h3 class="section">3.2 Inputting Data</h3>
+
+<p><code>Genesis</code> produces structure charts by taking input from 
+Admixture or CLUMPP tools, together with a PLINK-style fam and
+optionally a phenotype file which would contain population labels.
+</p>
+<p>To input these files, click <code>File</code> &rarr; <code>New Admixture</code> or the
+<code>New Admixture</code> button on the toolbar. On the screen that opens,
+click <code>Import Data File</code> and navigate to the admixture data file
+outputted by the Admixture/CLUMPP tools. Then click <code>Import Fam
+File</code> and navigate to the fam data file. Finally, click <code>Import
+Pheno File</code> and navigate to the phenotype data file.
+</p>
+<p>You can import multiple data files into the same project by clicking
+<code>Import Data File</code> again. These files can be imported in any order
+relative to the importing of the fam and pheno file.
+</p>
+<p>In the drop-down menu select the column of the phenotype file that will
+be used to group the data. To draw the graph, click <code>Finish</code> or
+click <code>Next</code> to access the Appearance Options menu (See below...).
+</p>
+<a name="Editing-Phenotype-Column_002fImporting-Additional-Data-Files"></a>
+<h4 class="unnumberedsubsec">Editing Phenotype Column/Importing Additional Data Files</h4>
+
+<p>If a graph has already been plotted, and you wish to change the column of the phenotype data used to group the data or import additional data files, you can access the initial menu by clicking the <code>Data Options</code> button on the toolbar, or clicking <code>Graph</code> &rarr; <code>Data Options</code>.
+</p>
+<a name="Appearance-Options"></a>
+<h3 class="section">3.3 Appearance Options</h3>
+
+<p>The Appearance Options menu can be accessed through the <code>New
+Admixture</code> button by clicking <code>Next</code> after importing the files or
+by clicking the <code>Appearance Options</code> button on the toolbar, or
+clicking <code>Graph</code> &rarr; <code>Appearance Options</code>.
+</p>
+<ul>
+<li> Heading
+
+<p>To set/change the heading, open the <code>Appearance Options</code> menu and type the heading into the text box that says &ldquo;Set Heading.&rdquo; To change the font of the heading, click <code>Select Heading Font</code> and select the font of choice.
+</p>
+</li><li> Border
+
+<p>To show/hide the border open the <code>Appearance Options</code> menu and (un)check the <code>Show Border</code> checkbox.
+</p>
+</li><li> Population Group Labels
+
+<p>To show/hide the population group labels, open the <code>Appearance Options</code> menu and (un)check the <code>Show Population Group Labels</code> checkbox.  To change the font of the population group labels, click <code>Select Population Group Label Font</code> and select the font of choice.
+</p>
+</li><li> Graph Size and Spacing
+
+<p>To change the size and spacing of a structure plot, open the <code>Appearance Options</code> menu and select values for the <code>Set Graph Height</code>, <code>Set Thickness of Each Subject</code> and <code>Set Distance Between Graphs</code> boxes.
+</p>
+</li><li> Horizontal/Vertical Orientation
+
+<p>To set the orientation of the structure plot, and select <code>Horizontal</code> or <code>Vertical</code> from the bottom drop down menu.
+</p>
+</li></ul>
+
+<a name="Interacting-with-the-Graph"></a>
+<h3 class="section">3.4 Interacting with the Graph</h3>
+
+<p>Other settings and options can be changed by interacting with the graph. Certain elements can be clicked to view or modify their options.
+</p>
+
+<ul>
+<li> Selecting Subjects
+
+<p>To select an individual subject on the structure plot, click on the subject on the plot. This will bring up a subject menu where you can view the data about the subject (from the phenotype data file) and gives the option to hide the subject from the plot.
+</p>
+</li><li> Population Group Name and Order
+
+<p>To select a population group, click on the population group label for the group. This will bring up a menu where you can change the Name of the group and also shift the group left/right (or up/down) in the graph.
+</p>
+</li><li> Changing the colours and order of colours and individuals
+
+<p>This option allows you to 
+</p><ul>
+<li> change colours (e.g., change red to blue)
+</li><li> change the order of the colours (e.g., on a horizontal chart, move
+the red segments from below the blue segments to above the red segments
+</li><li> order the individuals within a population group by an ancestral group.
+</li></ul>
+
+<p>Right click anywhere on a graph and select <code>Population Group
+Options</code>. 
+</p>
+
+
+<p>The menu below shows
+<img src="popgroupopts.jpg" alt="popgroupopts">
+</p>
+
+<p>From the next menu, click the button next to the colour you wish to
+change and from the next dialog, click the <code>Change \ldots</code> button
+to change the colour or the <code>Shift Up</code> and <code>Shift Down</code>
+buttons (or the <code>Shift Left</code> and <code>Shift Right</code> buttons) to
+change the order of the colours (i.e., on a horizonal graph, moving
+colours up and down; on a vertical graph moving them left and right).
+</p>
+<p>Clicking on a &ldquo;Sort indivs by colour&rdquo; button, will sort the
+<em>individuals</em> in each population group in order (left to right on a
+horizontal graph; top to bottom on vertical graph) so that the
+individual with the least ancestry represented by that colour is first,
+and the one with the greatest is last.
+</p>
+
+
+
+
+<p>For example if we have
+</p><div align="center"><img src="famorder.png" alt="famorder">
+</div>
+<p>and click on the <em>Sort indivs</em> next to the blue colour then we get.
+</p>
+<div align="center"><img src="blueorder.png" alt="blueorder">
+</div>
+
+
+
+<p>Clicking on &ldquo;Dominant colour&rdquo; orders each population group in a
+similar way, but instead of sorting each population group on the same
+colour, Genesis will compute the dominant ancestral component for that
+group and then order the individuals in that population group by that
+component.
+</p>
+<p>The <em>Fam order</em> option is essentially an undo: the individuals are
+displayed in the relative order that they appear in the fam file. 
+</p>
+<p>The ordering of individuals
+by component is not strict. If two individuals have a very similar but
+not equal  primary component, then a secondary component is used (this
+is more likely to lead to put similar individuals close to each other).
+Note that these options are being refined and behaviour may change. 
+</p>
+
+</li><li> Recolouring a  graph based on another graph
+
+<p>A common use case is to have structure charts for multiple values of
+<em>K</em>. When multiple graphs are imported some of the most glaring
+apparent differences will not be due to different numbers of colours but
+by arbitrary choices of which colours were used. Even though different
+values of <em>K</em> are used, typically  a column from one value of
+<em>K</em> will correspond to a column from another value of
+<em>K</em>. However, since the order of the columns is arbitrary the
+colours are arbitrary. Genesis has an option which tries to match the
+colours of of one graph with respect to another graph.
+</p>
+
+
+
+<p>For example a common case might be someting like:
+</p>
+<div align="center"><img src="multdifferent.jpg" alt="multdifferent">
+</div>
+<p>To recolour a graph, right click anywhere on a graph and select <code>Population Group
+Options</code> and choose either <em>Colour this graph similar to next</em> or
+<em>Colour this graph similar to previous</em> (these options only appear
+if it makes sense). Genesis will recolour.
+</p>
+
+
+<p>For example a common case might be someting like:
+</p>
+<div align="center"><img src="multsame.png" alt="multsame">
+</div>
+<p>Note that this option does not guarantee to recolour optimally. Rather
+it is intended to reduce the load on the user by making sensible choices
+for obvious colouring. (Indeed it is not clear what &ldquo;optimal&rdquo; means,
+or best to do colouring. For example, if a &ldquo;yellow&rdquo; colour splits into
+&ldquo;yellow&rdquo; and &ldquo;magenta&rdquo; which new component should be yellow and
+which magenta may require insight into populatio dynamics). A very
+simple heuristic is currently used, which works well in
+practice. However, this will improve in time.
+</p>
+</li><li> Searching for a Subject
+
+<p>To search for a subject in the graph by name, click the <code>Search for individual</code> button in the toolbar. In the dialog, enter the Name (first, last or both) of the individual you wish to find and click <code>Ok</code>. If the individual was found in the data, it will be selected and the subject dialog for that individual will open. If the individual was not found, a message will displayed.
+</p></li></ul>
+
+<a name="Annotating-the-Graph"></a>
+<h3 class="section">3.5 Annotating the Graph</h3>
+
+
+<ul>
+<li> Creating a Label
+
+<p>To create a label and annotate the graph, right click on the graph where the label is to be placed, and click <code>Create Label at Mouse Pointer</code>. Then enter the label&rsquo;s text and click <code>OK</code> to place the label.
+</p>
+</li><li> Editing or Deleting a Label
+
+<p>To reposition a label, click on it and drag to where it should go. If
+you press the shift key while dragging the label there is a snap to
+grid feasture. To edit a label that has been created, click on the
+label to bring up the Label dialog. From this dialog you can edit the
+label&rsquo;s text, reposition the label or delete the label.
+</p>
+</li><li> Hiding individuals
+
+<p>To hide a subject from the graph, click on the subject on the graph to bring up the subject dialog. From this menu you can choose to hide the subject from the graph.
+</p>
+</li><li> Hiding Groups 
+
+<p>To hide a population group from the graph, click on the group in the key to bring up the population group dialog and check the box labelled <code>Hide this group from the graph</code>.
+</p>
+</li><li> Showing Hidden Subjects and groups 
+
+<p>To reshow a subject that has been hidden, click on the <code>Select Hidden Individuals or Groups</code> button and from the drop down menu that pops up, select the name of the subject or group that you wish to show. From the subject dialog you can now uncheck the <code>Hide this Individual from the Graph</code> or <code>Hide this group from the Graph</code> checkbox.
+</p>
+</li><li> Drawing lines and arrows
+
+<p><code>Genesis</code> provides very simple functionality for adding lines and
+arrows. Click on the icon and the place the line or arrow by (a)
+clicking on the point where the line/arrow should start, (b)
+<em>dragging</em> to the point where the line should finish, and (c)
+releasing the mouse.  If you press the shift key down at the same
+time, then only vertical or horizontal lines can be produced.
+</p>
+<p>Lines and arrows can be deleted or moved &ndash; if you press the shift key down at
+the same time as moving there is a &ldquo;snap to grid&rdquo; feature. Note that
+lines cannot be shortened or lengthened, and nor can the orientation change.
+</p>
+
+
+
+</li></ul>
+
+
+
+<a name="Useful-scripts"></a>
+<h3 class="section">3.6 Useful scripts</h3>
+
+<a name="structure2CLUMPP_003a-Wrapper-script-for-the-Structure-tool"></a>
+<h4 class="subsection">3.6.1 structure2CLUMPP: Wrapper script for the Structure tool</h4>
+
+<p><code>Genesis</code> supports Admixture Q files and CLUMPP output files
+natively. CLUMPP&rsquo;s output format is a derivative of the Structure tool&rsquo;s
+output. (Thus our naming convention is somewhat inaccurate, since CLUMPP
+format is really a sub-part of the Structure format). When Structure
+runs, it produces log information, summary information about the
+population and the inferred ancestry of individuals. This inferred
+ancestry is what we want and can be found in the middle of the output
+file. 
+</p>
+<p>The script <code>structure2CLUMPP</code> takes one mandatory argument, the
+file name of a structure output file.
+</p>
+<pre class="verbatim">python structure2CLUMPP testdata1.out_f 
+</pre>
+<p>By default, output is placed on standard output. The <code>--outbase</code> flag
+can be used to set the base of the output name. The script appends to
+this base the suffix <em>K</em>.Q, where <em>K</em> is the number of columns
+in the ancestry file (so as to be consistent with <em>admixture</em>).
+</p>
+<pre class="verbatim">python structure2CLUMPP --outbase data testdata1.out_f 
+</pre>
+<p>If there are 4 columns in the file testdata1.out_f, then this will
+produce a file <em>data.4.Q</em>.
+</p>
+<p>The script also has a flag <code>--produce-fam</code> which can be used to
+produce a bare bones fam file if needed.
+</p>
+<p>The full usage is
+</p>
+<pre class="verbatim">usage: structure2CLUMPP [-h] [--outbase OUTBASE] [--produce-fam FAM_NAME] N
+
+produce admixture style output from structure output
+
+positional arguments:
+  N                     structure file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --outbase OUTBASE     output file name base (default output to standard out)
+  --produce-fam FAM_NAME
+                        produce fam file
+</pre>
+<p><b>Technical details</b>.
+The output of the structure program contains various information,
+including log and FST data. Immediately after the lines that start
+</p>
+<pre class="verbatim">Inferred ancestry of individuals:
+        Label (%Miss) Pop:  Inferred clusters
+</pre>
+<p>follow the inferred ancestry of each individual followed by blank
+line. This is what we want. An extract might look something like this:
+</p>
+<pre class="verbatim">  7        7    (0)    1 :  0.017 0.014 0.970 
+  8        8    (0)    1 :  0.009 0.005 0.986 
+  9        9    (0)    1 :  0.353 0.116 0.531 
+</pre>
+<p>Here <em>K=3</em>, and the ancestry of each individual can be found to the
+right of the colon (for our purposes we can ignore what&rsquo;s to the left of
+the colon).  The <code>structure2CLUMPP</code> script extracts out this part
+of the output from the <code>structure</code> program and produces output
+which could be output from CLUMPP. The <code>Genesis</code> program can read
+this input.
+</p>
+<a name="sortfamQwithin_002epy-_002d_002d_002d-ordering-invididuals-by-colour"></a>
+<h4 class="subsection">3.6.2 sortfamQwithin.py &mdash; ordering invididuals by colour</h4>
+
+<p>Although Genesis directly supports some ordering by individuals, we have
+a script that has more sophisticated functionality. In time this will be
+migrated into Genesis.
+Usually individuals are ordered in the fam file by group, but within the
+group the ordering is arbitrary. In admixed populations this may lead to 
+confusing pictures because individuals who are adjacent to each other
+may have different admixtures so one gets a very jagged chart where a
+pattern is hard to discern. The script <em>sortfamQwithin.py</em>
+consistently sorts a fam and Q file(s) so that within each group, the
+individuals are sorted by the dominant ancestral population for that
+group. This script is documented here:
+</p>
+<p><a href="http://www.bioinf.wits.ac.za/software/poputils/">http://www.bioinf.wits.ac.za/software/poputils/</a>
+</p>
+<a name="Other-scripts"></a>
+<h4 class="subsection">3.6.3 Other scripts</h4>
+
+<p>There are other useful scripts like <em>fams2phe</em> and <em>popifyfam.py</em>
+which can be used to create phenotype files in <a href="http://www.bioinf.wits.ac.za/software/poputils/">http://www.bioinf.wits.ac.za/software/poputils/</a>
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Creating-PCA-Plots.html#Creating-PCA-Plots" accesskey="n" rel="next">Creating PCA Plots</a>, Previous: <a href="Installing-and-Running-Genesis.html#Installing-and-Running-Genesis" accesskey="p" rel="prev">Installing and Running Genesis</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+
+
+
+</body>
+</html>

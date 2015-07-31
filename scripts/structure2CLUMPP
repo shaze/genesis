@@ -1,0 +1,73 @@
+#!/usr/bin/python
+
+import os
+import sys
+import os.path
+import re
+import argparse
+import string
+
+def setup():
+    parser = argparse.ArgumentParser(description='produce admixture style output from structure output')
+
+    parser.add_argument('structure', metavar='N', type=str, help='structure file')
+    parser.add_argument('--outbase',dest='outbase',action='store',default="",\
+                        help='output file name base (default output to standard out)')
+    parser.add_argument('--produce-fam', dest='fam_name', action='store',\
+                         default="",\
+                        help='produce fam file')
+    args = parser.parse_args()
+    return args
+
+
+def produceFam(data,fam_name,outbase):
+    fout = open(fam_name,"w")
+    for line in data:
+        mm = re.search("(\S*)\s+(\S*)\s+\((\S*)\)\s+(\S*)\s+:",line)
+        fout.write("%s %s %s %s\n"%(mm.group(1),mm.group(2),mm.group(3),mm.group(4)))
+    fout.close()
+
+
+        
+
+
+
+args=setup()
+
+finp = open(args.structure)
+
+for line in finp:
+    if "Inferred clusters" in line: break
+else:
+    sys.exit("Admixture proportions not found in file")
+
+
+data = []
+for line in finp:
+    if len(line)<5: break
+    if ":" not in line: break
+    data.append(line)
+
+finp.close()
+
+
+# now find number of columns in data
+K = data[0].count(".")
+
+if args.outbase:
+    outf = open("%s.%d.Q"%(args.outbase,K),"w")
+else:
+    outf = sys.stdout
+
+for line in data:
+    line=line.split(":")[1].strip()+"\n"
+    outf.write(line)
+
+if args.outbase:
+    outf.close()
+
+if args.fam_name:
+    produceFam(data,args.fam_name,args.outbase)
+
+
+

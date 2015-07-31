@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+if [ "${OSTYPE}" = "darwin" ] || [ `uname` = "Darwin" ]; then
+   java -Xmx2048m -Xms512m -XstartOnFirstThread -jar /usr/local/bin/Genesis.jar
+else
+   java -Xmx2048m -Xms512m -jar /usr/local/bin/Genesis.jar
+fi
