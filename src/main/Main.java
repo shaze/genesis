@@ -27,7 +27,7 @@ import org.eclipse.swt.widgets.Display;
 
 
 public class Main {
-	public static String version = "0.2.5 2015-01-12";
+	public static String version = "0.2.6 2015-09-01";
 	
 	public static void main(String[] args) {
 		final Display display = new Display();

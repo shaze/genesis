@@ -79,43 +79,51 @@ class PopCompare implements Comparator<Integer> {
 
 class ColCompare implements Comparator<Integer> {
 
-    AdmixSubject admixData[];
-    int          colour;
-    int          choices[];
-    int          k;
+	AdmixSubject admixData[];
+	int          colour;
+	int          choices[];
+	int          k;
 
-    public ColCompare(int col,AdmixSubject admixData[]) {
-	k=admixData[0].getRatio().length;
-	int curr;
-	this.admixData = admixData;
-	colour=col;
-	choices=new int[k];
-	choices[0]=colour;
-	curr=1;
-	for(int i=0; i<k; i++) 
-	    if (i != col) {
-		choices[curr]=i;
-		curr++;
-	    }
-    }
-
-    public int compare(Integer a, Integer b) {
-	int m=0,i,colour;
-	for(i=0; i<k; i++) {
-	    colour=choices[i];
-	    m= Math.round(100*(
-	       admixData[a.intValue()].getRatio()[colour]-
-	       admixData[b.intValue()].getRatio()[colour]));
-	    if (Math.abs(m)>0) break;
+	public ColCompare(int col,AdmixSubject admixData[]) {
+		k=admixData[0].getRatio().length;
+		int curr;
+		this.admixData = admixData;
+		colour=col;
+		choices=new int[k];
+		choices[0]=colour;
+		curr=1;
+		for(int i=0; i<k; i++) 
+			if (i != col) {
+				choices[curr]=i;
+				curr++;
+			}
 	}
-	return m;
-    }
 
-    boolean equals(Integer a, Integer b) {
-	int m=0;
-	m=compare(a,b);
-	return m==0;
-    }
+	public int compare(Integer a, Integer b) {
+		int m=0;
+		int i,colour;
+		for(i=0; i<k; i++) {
+			colour=choices[i];
+			// Had a varaint of below but it makes assumptions which fail on some data sets
+			// and get violation of sort contract
+			//m= Math.round(0x01000000*(
+			//		admixData[a.intValue()].getRatio()[colour]-
+			//		admixData[b.intValue()].getRatio()[colour]));
+			if ( admixData[a.intValue()].getRatio()[colour] > admixData[b.intValue()].getRatio()[colour]) {
+				return 1;
+			}
+			if ( admixData[a.intValue()].getRatio()[colour] < admixData[b.intValue()].getRatio()[colour]) {
+				return -1;
+			}		
+		}
+		return 0;
+	}
+
+	boolean equals(Integer a, Integer b) {
+		int m=0;
+		m=compare(a,b);
+		return m==0;
+	}
 }
 
 
@@ -128,36 +136,38 @@ abstract class SortColour implements Serializable {
     protected abstract void sortOnColours(ArrayList<Integer> unsort, int count);
 
     public void sortGraph(AdmixProj proj, int phenoColumn) {
-	    ArrayList<Integer> unsort;
-	    AdmixSubject a;
-	    int count;
-	    unsort = new ArrayList<Integer>(graph.admixData.length);
-	    if (proj.getGroups() == null) {
-		count = 0;
-		unsort.clear();
-	        for (int i=0; i< graph.admixData.length; i++) {
-		    a = graph.admixData[i]; 
-                    if(a.getVisible()) {
-			   unsort.add(i);
-			   count++;
-		    }
-		}
-		sortOnColours(unsort,count);
-		return;
-	    };
- 	    for(AdmixPopulationGroup p:proj.getGroups()[phenoColumn]){
-		count = 0;
-		unsort.clear();
-	        for (int i=0; i< graph.admixData.length; i++) {
-		    a = graph.admixData[i]; 
-                    if(a.getGroups()[phenoColumn].getID()==p.getID())
-		       if(a.getVisible()&&a.getGroups()[phenoColumn].getVisible()) {
-			   unsort.add(i);
-			   count++;
-		       }
-		}
-		sortOnColours(unsort,count);
-	    }
+    	ArrayList<Integer> unsort;
+    	AdmixSubject a;
+    	int count;
+    	unsort = new ArrayList<Integer>(graph.admixData.length);
+    	// If there are no groups
+    	if (proj.getGroups() == null) {
+    		count = 0;
+    		unsort.clear();
+    		for (int i=0; i< graph.admixData.length; i++) {
+    			a = graph.admixData[i]; 
+    			if(a.getVisible()) {
+    				unsort.add(i);
+    				count++;
+    			}
+    		}
+    		sortOnColours(unsort,count);
+    		return;
+    	};
+    	// If thee are grups
+    	for(AdmixPopulationGroup p:proj.getGroups()[phenoColumn]){
+    		count = 0;
+    		unsort.clear();
+    		for (int i=0; i< graph.admixData.length; i++) {
+    			a = graph.admixData[i]; 
+    			if(a.getGroups()[phenoColumn].getID()==p.getID())
+    				if(a.getVisible()&&a.getGroups()[phenoColumn].getVisible()) {
+    					unsort.add(i);
+    					count++;
+    				}
+    		}
+    		sortOnColours(unsort,count);
+    	}
     }
 
 
