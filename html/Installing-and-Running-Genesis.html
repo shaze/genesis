@@ -1,259 +1,212 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<html lang="en">
 <head>
-<title>Genesis Manual 0.2: Installing and Running Genesis</title>
-
-<meta name="description" content="Genesis Manual 0.2: Installing and Running Genesis">
-<meta name="keywords" content="Genesis Manual 0.2: Installing and Running Genesis">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="Creating-Structure-Plots.html#Creating-Structure-Plots" rel="next" title="Creating Structure Plots">
-<link href="Description.html#Description" rel="prev" title="Description">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+<title>Installing and Running Genesis - Genesis Manual 0.2</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Genesis Manual 0.2">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Description.html#Description" title="Description">
+<link rel="next" href="Creating-Structure-Plots.html#Creating-Structure-Plots" title="Creating Structure Plots">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
 </head>
-
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Installing-and-Running-Genesis"></a>
-<div class="header">
+<body>
+<div class="node">
 <p>
-Next: <a href="Creating-Structure-Plots.html#Creating-Structure-Plots" accesskey="n" rel="next">Creating Structure Plots</a>, Previous: <a href="Description.html#Description" accesskey="p" rel="prev">Description</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
-</div>
+<a name="Installing-and-Running-Genesis"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Creating-Structure-Plots.html#Creating-Structure-Plots">Creating Structure Plots</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Description.html#Description">Description</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 <hr>
+</div>
 
-<a name="Installing-and-Running-Genesis-1"></a>
 <h2 class="chapter">2 Installing and Running <code>Genesis</code></h2>
 
-
-<a name="Installing-Genesis"></a>
 <h3 class="section">2.1 Installing <code>Genesis</code></h3>
 
 <p>The latest code can be found at
 <a href="http://www.bioinf.wits.ac.za/software/genesis">http://www.bioinf.wits.ac.za/software/genesis</a>
-</p>
 
-<p><code>Genesis</code> does not special installation and the file can simply be
+   <p><code>Genesis</code> does not special installation and the file can simply be
 executed using Java. It does, however, <b>require the Java SE Runtime
-Environment 1.7 or higher to be installed on the user&rsquo;s system</b>. 
-The latest version of the Java SE Runtime Environment 1.7 can be found at: 
+Environment 1.7 or higher to be installed on the user's system</b>. 
+The latest version of the Java SE Runtime Environment 1.7 can be found at:
 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html">http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html</a>
-</p>
-<p>To check if you already have Java installed, you can open your Operating
-System&rsquo;s command line interface and enter
-</p>
-<p><code>java -version</code>
-</p>
-<p>If Java is installed, one line of the response should read 
-</p>
-<p><code>Java(TM) SE Runtime Environment (build 1.x.0_*)</code>
-</p>
-<p>where x is the version number (and should be 7 or higher) and the <code>*</code> is not important.
-</p>
-<p>Alternatively, Windows users can open Control Panel and then open <code>Add/Remove Programs</code> and check the list for Java SE Runtime Environment (in windows XP and earlier) or open <code>Programs</code> then <code>Programs and Features</code> and if <code>Java</code> x is in the list, then Java is installed where x is the version number (in Windows Vista, 7 or 8).
-</p>
-<p><b>Mac OSX requires X11 to be installed.</b> This can be downloaded from
+
+   <p>To check if you already have Java installed, you can open your Operating
+System's command line interface and enter
+
+   <p><code>java -version</code>
+
+<p class="noindent">If Java is installed, one line of the response should read
+
+   <p><code>Java(TM) SE Runtime Environment (build 1.x.0_*)</code>
+
+<p class="noindent">where x is the version number (and should be 7 or higher) and the <code>*</code> is not important.
+
+   <p>Alternatively, Windows users can open Control Panel and then open <code>Add/Remove Programs</code> and check the list for Java SE Runtime Environment (in windows XP and earlier) or open <code>Programs</code> then <code>Programs and Features</code> and if <code>Java</code> x is in the list, then Java is installed where x is the version number (in Windows Vista, 7 or 8).
+
+   <p><b>Mac OSX requires X11 to be installed.</b> This can be downloaded from
 <a href="http://xquartz.macosforge.org/landing/">http://xquartz.macosforge.org/landing/</a>.
-</p>
-<p><code>Genesis</code> is compatible with the 32 and 64 bit varieties of
+
+   <p><code>Genesis</code> is compatible with the 32 and 64 bit varieties of
 Windows, Mac OSX and Linux.
-</p>
-<p>If you are using a version of Java other than Oracle&rsquo;s, you may need to
+
+   <p>If you are using a version of Java other than Oracle's, you may need to
 install the SWT libraries separately. On Ubuntu, installing openjdk, the
 following should work
-</p>
-<pre class="verbatim">apt-get install jre-default
+
+<pre class="verbatim">
+apt-get install jre-default
 
 OR (but NOT both)
 
 apt-get install  libswt-gtk-3-java  openjdk-7-jre-headless
 </pre>
 
-<a name="Running-Genesis"></a>
 <h3 class="section">2.2 Running <code>Genesis</code></h3>
 
 <p><b>Windows and Linux</b> If the Java SE Runtime Environment 1.7 is installed, the user should be able to open <code>Genesis</code> by double-clicking the file. If this does not work, the user will have to launch the jar manually through a command line editor (cmd in windows or terminal in linux) using the following command.
-</p>
-<p><code>java -jar Genesis.jar</code>
-</p>
 
-<p><b>For Linux and MacOSX</b> the recommended configuration is to unzip,
+   <p><code>java -jar Genesis.jar</code>
+
+   <p><b>For Linux and MacOSX</b> the recommended configuration is to unzip,
 <code>cd</code> into the genesis-distrib directory and then say
-</p>
-<pre class="verbatim">sudo mv Genesis.jar misc/genesis /usr/local/bin
+
+<pre class="verbatim">
+sudo mv Genesis.jar misc/genesis /usr/local/bin
 sudo chmod a+x /usr/local/bin/genesis
 </pre>
-<p>and then, the program can be run by executing the command <code>genesis</code>
-</p>
-<p><b>OS X</b>:
-Ensure that the Java SE Runtime Environment 1.7 is installed. In OSX, the user must launch the file through the command line with an extra argument as follows
-</p>
-<p><code>java -XstartOnFirstThread -jar Genesis.jar</code>
-</p>
 
-<p><b>Wrapper script</b> A simple wrapper script <code>genesis</code> is provided to
+<p class="noindent">and then, the program can be run by executing the command <code>genesis</code>
+
+   <p><b>OS X</b>:
+Ensure that the Java SE Runtime Environment 1.7 is installed. In OSX, the user must launch the file through the command line with an extra argument as follows
+
+   <p><code>java -XstartOnFirstThread -jar Genesis.jar</code>
+
+   <p><b>Wrapper script</b> A simple wrapper script <code>genesis</code> is provided to
 aid the use of the program which works for Linux or MacOS
 X. Installation of the JAR and wrapper can be done by running
 <code>install.sh</code>. By default, the script installs into
 <code>/usr/local/bin</code>. If you want it elsewhere, specify the directory
 name, e.g <code>./install.sh /Users/scott/bin</code>. You may need <code>sudo</code>
 privileges.
-</p>
-<p><b>Memory usage</b>: If you are building up very complex charts (e.g, in a
+
+   <p><b>Memory usage</b>: If you are building up very complex charts (e.g, in a
 large study doing admixture charts for 6 or 7 values of K on the same
 Genesis chart), you may require extra memory when running Genesis.
-</p>
-<pre class="verbatim">java -Xmx2048m -Xms521m -jar Genesis.jar
+
+<pre class="verbatim">
+java -Xmx2048m -Xms521m -jar Genesis.jar
 </pre>
-<a name="Known-bugs"></a>
+
 <h3 class="section">2.3 Known bugs</h3>
 
-<ul>
-<li> On MacOS X, when the program is first run the SWT menu does not
+     <ul>
+<li>On MacOS X, when the program is first run the SWT menu does not
 appear on the menu bar. If you make another application active and then
 come back to Genesis, the menu appears. This appears to be a bug of SWT
-on MacOS X.
-</li><li> Using some versions of SWT, occasionally when opening a previous
+on MacOS X. 
+<li>Using some versions of SWT, occasionally when opening a previous
 project the program crashes with an obscure error message. Update your
 SWT to a later version. We try to package the latest available version
 with Genesis. (This appears to have gone away with the latest version
 of SWT).
 
+</ul>
 
-
-</li></ul>
-
-
-<a name="Supported-input-data-formats"></a>
 <h3 class="section">2.4 Supported input data formats</h3>
 
 <p>For structure charts, <code>Genesis</code> supports the output of the
 <code>admixture</code> and <code>CLUMPP</code> programs. In addition, we provide a
 python script that will convert the output of the <code>structure</code>
 program into the appropriate input format. See See <a href="Creating-Structure-Plots.html#Creating-Structure-Plots">Creating Structure Plots</a>.
-</p>
-<p>For PCA charts, <code>Genesis</code> supports the output of the
+
+   <p>For PCA charts, <code>Genesis</code> supports the output of the
 <code>eigenstrat</code> and <code>plink</code> programs and the SNPRelate R package. In addition, we
 provide Python scripts that will convert the output of the
 <code>fastpca</code> program into the appropriate
 format. See See <a href="Creating-PCA-Plots.html#Creating-PCA-Plots">Creating PCA Plots</a>.
-</p>
-<p>We shall try to add to the suite of conversion scripts, but we intend
+
+   <p>We shall try to add to the suite of conversion scripts, but we intend
 that future versions of <code>Genesis</code> will automatically detect the
 correct input format and deal appropriately.
-</p>
 
-<a name="Menu-structure"></a>
 <h3 class="section">2.5 Menu structure</h3>
 
 <p>When <code>Genesis</code> runs, a menu appears at the top. The menu items are
 <em>File</em>, <em>Graph</em> and <em>Help</em>. <em>File</em> allows creation
 and saving of graphs, and exporting image files. <em>Graph</em> allows
 changing data and appearance options. The manual is available under help.
-</p>
-<p>For added usability the icons with the key menu features apper at the
+
+   <p>For added usability the icons with the key menu features apper at the
 top of the <em>Genesis</em> window. If the cursor is placed over the icon,
 a brief description of the menu item is given. The menu items are
 briefly described below and the functions are described in detail in
 next sections.
-</p>
 
+   <div class="block-image"><img src="n.jpg" alt="n.jpg"></div>
 
+   <p>From left to right, the menu items are:
 
-<img src="n.jpg" alt="n">
+     <ul>
+<li>Admix: create a new Admixture chart
 
+     <li>PCA: create a new PCA chart
 
-
-<p>From left to right, the menu items are:
-</p>
-<ul>
-<li> Admix: create a new Admixture chart
-
-</li><li> PCA: create a new PCA chart
-
-</li><li> Save Project: this saves the current charts being created in a
+     <li>Save Project: this saves the current charts being created in a
 Genesis format file, which incorporates all changes the user has
 made. This does not save images, but the internal state of the program
 for later reloading.
 
-</li><li> Load Project: this loads a previously savied Genesis project. Note
+     <li>Load Project: this loads a previously savied Genesis project. Note
 that the New Admix and PCA options are used to create charts from raw output
 of the admixture and PCA tools. The Load Project option loads previosly
 saved charts.
 
-</li><li> Data Options: allows the user to provide constraints on the data
+     <li>Data Options: allows the user to provide constraints on the data
 files used. For example, the user can specify which column in the file
 contains the phenotype data, or which principal components should be
 displayed.
 
-</li><li> Appearance Options: gives the user flexibility in determinig how
+     <li>Appearance Options: gives the user flexibility in determinig how
 what the charts look like. Examples are: size of margin, choice of font
 and size, headings and so on.
 
-</li><li> Refresh.
+     <li>Refresh.
 
-</li><li> Show/Hide 3D Rotate Panel: if the user is showing a 3D PC chart,
+     <li>Show/Hide 3D Rotate Panel: if the user is showing a 3D PC chart,
 simple rotation is supported.
 
-</li><li> Search for individual: the user can specify the ID of an
+     <li>Search for individual: the user can specify the ID of an
 individual in the study and that inviduals data is highlighed in the
 chart.
 
-</li><li> Unhide: individuals or groups can be hidden from the display. This
+     <li>Unhide: individuals or groups can be hidden from the display. This
 option allows unhiding.
 
-</li><li> Line: Simple lines can be drawn
+     <li>Line: Simple lines can be drawn
 
-</li><li> Arrow: Simple arrows can be draw
+     <li>Arrow: Simple arrows can be draw
 
-</li><li> Export: The picture can be exported to a PNG, SVG, or PDF file.
+     <li>Export: The picture can be exported to a PNG, SVG, or PDF file.
 
-</li><li> Close Project: The current chart is closed. If not previously
+     <li>Close Project: The current chart is closed. If not previously
 saved, it is deleted.
 
-</li></ul>
+   </ul>
 
+   </body></html>
 
-
-<hr>
-<div class="header">
-<p>
-Next: <a href="Creating-Structure-Plots.html#Creating-Structure-Plots" accesskey="n" rel="next">Creating Structure Plots</a>, Previous: <a href="Description.html#Description" accesskey="p" rel="prev">Description</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
-</div>
-
-
-
-</body>
-</html>

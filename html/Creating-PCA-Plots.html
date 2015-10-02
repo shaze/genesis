@@ -1,226 +1,187 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<html lang="en">
 <head>
-<title>Genesis Manual 0.2: Creating PCA Plots</title>
-
-<meta name="description" content="Genesis Manual 0.2: Creating PCA Plots">
-<meta name="keywords" content="Genesis Manual 0.2: Creating PCA Plots">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="Saving-and-Exporting.html#Saving-and-Exporting" rel="next" title="Saving and Exporting">
-<link href="Creating-Structure-Plots.html#Creating-Structure-Plots" rel="prev" title="Creating Structure Plots">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+<title>Creating PCA Plots - Genesis Manual 0.2</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Genesis Manual 0.2">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Creating-Structure-Plots.html#Creating-Structure-Plots" title="Creating Structure Plots">
+<link rel="next" href="Saving-and-Exporting.html#Saving-and-Exporting" title="Saving and Exporting">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
 </head>
-
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Creating-PCA-Plots"></a>
-<div class="header">
+<body>
+<div class="node">
 <p>
-Next: <a href="Saving-and-Exporting.html#Saving-and-Exporting" accesskey="n" rel="next">Saving and Exporting</a>, Previous: <a href="Creating-Structure-Plots.html#Creating-Structure-Plots" accesskey="p" rel="prev">Creating Structure Plots</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
-</div>
+<a name="Creating-PCA-Plots"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Saving-and-Exporting.html#Saving-and-Exporting">Saving and Exporting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Creating-Structure-Plots.html#Creating-Structure-Plots">Creating Structure Plots</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 <hr>
+</div>
 
-
-<a name="PCA-Plots"></a>
 <h2 class="chapter">4 PCA Plots</h2>
 
-
-<a name="Input-data-format"></a>
 <h3 class="section">4.1 Input data format</h3>
 
 <p><code>Genesis</code> takes as input one mandatory file, and one optional file:
-</p>
-<ul>
-<li> The compulsory input file is a PCA file. In this version of the
+
+     <ul>
+<li>The compulsory input file is a PCA file. In this version of the
 code, threeinput formats are supported: eigenstrat, plink and SNPRelate.
 
-</li><li> A phenotype file (see the description in the previous section),
+     <li>A phenotype file (see the description in the previous section),
 which labels each individual. In addition to plink-style phentoype files,
 eigenstrat pca.evec files are legal as input (the phentoype is often in
 thelast column).
 
+   </ul>
 
-</li></ul>
-
-<p>We have scripts that convert from other popular PCA formats (PLINK,
+   <p>We have scripts that convert from other popular PCA formats (PLINK,
 flashpca) to a format the Genesis understands. These scripts are
 discussed in the section <em>Advice on data formats</em> below. We
 hope that in future versions of Genesis that this will be handled
 natively.
-</p>
 
-<a name="Data-input"></a>
 <h3 class="section">4.2 Data input</h3>
 
-<p>To input Eigenstrat files, click <code>File</code> &rarr; <code>New PCA</code> or the <code>New
+<p>To input Eigenstrat files, click <code>File</code>, click <code>New PCA</code> or the <code>New
 PCA</code> button on the toolbar. On the screen that opens, click <code>Import
 Data File</code> and navigate to the PCA data file outputted by the Eigenstrat
 software. Then optionally click <code>Import Phenotype File</code> and
 navigate to the phenotype data file.  To input SNPRelate Data, click
-<code>File</code> &rarr; <code>New PCA</code> or the <code>New PCA</code> button on the toolbar. On
+<code>File</code> click <code>New PCA</code> or the <code>New PCA</code> button on the toolbar. On
 the screen that opens, click <code>Import Data File</code> and navigate to the
 PCA data file outputted by the Relate package. The relate package file
 includes the phenotype information in the data file.
-</p>
-<p>In the drop-down menus, select the 2 or 3 PCAs to plot as the axes and
+
+   <p>In the drop-down menus, select the 2 or 3 PCAs to plot as the axes and
 select the column of the phenotype file that will be used to group the
 data. To draw the graph, click <code>Finish</code> or click <code>Next</code> to
 access the Appearance Options menu (See below...).
-</p>
-<ul>
-<li> Editing PCAs/Phenotype Column
 
-<p>If a graph has already been plotted, and you wish to change the PCAs to be the axes or the column of the phenotype data to represent the data, you can access the initial menu by clicking the <code>Data Options</code>
-button on the toolbar, or clicking <code>Graph</code> &rarr; <code>Data Options</code>.
-</p>
-</li><li> Appearance Options
+     <ul>
+<li>Editing PCAs/Phenotype Column
 
-<p>The Appearance Options menu can be accessed through the <code>New PCA</code>
+     <p>If a graph has already been plotted, and you wish to change the PCAs to be the axes or the column of the phenotype data to represent the data, you can access the initial menu by clicking the <code>Data Options</code>
+button on the toolbar, or clicking <code>Graph</code> click <code>Data Options</code>.
+
+     <li>Appearance Options
+
+     <p>The Appearance Options menu can be accessed through the <code>New PCA</code>
 button by clicking <code>Next</code> after importing the files or by clicking
 the <code>Appearance Options</code> button on the toolbar, or clicking
-<code>Graph</code> &rarr; <code>Appearance Options</code>.
-</p>
-</li><li> Heading
+<code>Graph</code> click <code>Appearance Options</code>.
 
-<p>To set/change the heading, open the <code>Appearance Options</code> menu and type the heading into the text box that says &ldquo;Set Heading.&rdquo; To change the font of the heading, click <code>Select Heading Font</code> and select the font of choice.
-</p>
-</li><li> Border
+     <li>Heading
 
-<p>To show/hide the border open the <code>Appearance Options</code> menu and (un)check the <code>Show Border</code> checkbox.
-</p>
-</li><li> Axes
+     <p>To set/change the heading, open the <code>Appearance Options</code> menu and type the heading into the text box that says &ldquo;Set Heading.&rdquo; To change the font of the heading, click <code>Select Heading Font</code> and select the font of choice.
 
-<p>To show/hide the axes, axis labels, grid and scale, open the <code>Appearance Options</code> menu and (un)check the relevant checkboxes.
-</p>
-</li><li> Key Options
+     <li>Border
 
-<p>To set the position of the key, open the <code>Appearance Options</code> menu and select the key position from the drop down menu. To hide the key, select <code>No Key</code> from the drop down menu. To change the font of the key, click <code>Select Key Font</code> and select the font of choice.
-</p>
-<p>Other settings and options can be changed by interacting with the graph. Certain elements can be clicked to view or modify their options.
-</p>
-</li><li> Selecting Subjects
+     <p>To show/hide the border open the <code>Appearance Options</code> menu and (un)check the <code>Show Border</code> checkbox.
 
-<p>To select an individual subject on the structure plot, click on the subject on the plot. This will bring up a subject menu where you can view the data about the subject (from the phenotype data file) and gives options to change the subject&rsquo;s icon as well as to delete the subject and hide or place the subject on top.
-</p>
-</li><li> Changing Subject&rsquo;s Icon
+     <li>Axes
 
-<p>To change an individual subject&rsquo;s icon, click the subject on the graph and from the dialog that opens, select the icon shape and colour. Selecting the shape <code>Default</code> will set the shape of the icon to the group&rsquo;s shape and checking <code>Clear all icon data specific to this individual</code> will set the icon&rsquo;s shape and colour to the group&rsquo;s.
-</p>
-</li><li> Placing a Subject on Top
+     <p>To show/hide the axes, axis labels, grid and scale, open the <code>Appearance Options</code> menu and (un)check the relevant checkboxes.
 
-<p>To place an individual subject on top, click the subject on the graph and from the dialog that opens, check the <code>Place this individual on top</code> checkbox and click <code>Done</code>.
-</p>
-</li><li> Changing the Population Group Names
+     <li>Key Options
 
-<p>To change a population group&rsquo;s name, click on the group in the key. This will bring up the Population Group dialog. From here you can set the group name and click <code>Done</code>.
-</p>
-</li><li> Changing the Population Group Icons
+     <p>To set the position of the key, open the <code>Appearance Options</code> menu and select the key position from the drop down menu. To hide the key, select <code>No Key</code> from the drop down menu. To change the font of the key, click <code>Select Key Font</code> and select the font of choice.
 
-<p>To change a population group&rsquo;s icon, click on the group in the key. This will bring up the Population Group dialog. From here you can set the shape and colour of the icon and click <code>Done</code>.
-</p>
-</li><li> Changing the Order of Population Groups in the Key
+     <p>Other settings and options can be changed by interacting with the graph. Certain elements can be clicked to view or modify their options.
 
-<p>To change a the order of the population groups in the key, click on the group in the key. This will bring up the Population Group dialog. From here you can click <code>Shift Up</code> or <code>Shift Down</code> shift the group&rsquo;s order in the key.
-</p>
-</li></ul>
+     <li>Selecting Subjects
 
-<a name="Annotating-the-Graph-1"></a>
+     <p>To select an individual subject on the structure plot, click on the subject on the plot. This will bring up a subject menu where you can view the data about the subject (from the phenotype data file) and gives options to change the subject's icon as well as to delete the subject and hide or place the subject on top.
+
+     <li>Changing Subject's Icon
+
+     <p>To change an individual subject's icon, click the subject on the graph and from the dialog that opens, select the icon shape and colour. Selecting the shape <code>Default</code> will set the shape of the icon to the group's shape and checking <code>Clear all icon data specific to this individual</code> will set the icon's shape and colour to the group's.
+
+     <li>Placing a Subject on Top
+
+     <p>To place an individual subject on top, click the subject on the graph and from the dialog that opens, check the <code>Place this individual on top</code> checkbox and click <code>Done</code>.
+
+     <li>Changing the Population Group Names
+
+     <p>To change a population group's name, click on the group in the key. This will bring up the Population Group dialog. From here you can set the group name and click <code>Done</code>.
+
+     <li>Changing the Population Group Icons
+
+     <p>To change a population group's icon, click on the group in the key. This will bring up the Population Group dialog. From here you can set the shape and colour of the icon and click <code>Done</code>.
+
+     <li>Changing the Order of Population Groups in the Key
+
+     <p>To change a the order of the population groups in the key, click on the group in the key. This will bring up the Population Group dialog. From here you can click <code>Shift Up</code> or <code>Shift Down</code> shift the group's order in the key.
+
+   </ul>
+
 <h3 class="section">4.3 Annotating the Graph</h3>
 
-<ul>
-<li> Creating a Label
+     <ul>
+<li>Creating a Label
 
-<p>To create a label and annotate the graph, right click on the graph where the label is to be placed, and click <code>Create Label at Mouse Pointer</code>. Then enter the label&rsquo;s text and click <code>OK</code> to place the label.
-</p>
-</li><li> Editing or Deleting a Label
+     <p>To create a label and annotate the graph, right click on the graph where the label is to be placed, and click <code>Create Label at Mouse Pointer</code>. Then enter the label's text and click <code>OK</code> to place the label.
 
-<p>To edit a label that has been created, click on the label to bring up
-the Label dialog. From this dialog you can edit the label&rsquo;s text,
+     <li>Editing or Deleting a Label
+
+     <p>To edit a label that has been created, click on the label to bring up
+the Label dialog. From this dialog you can edit the label's text,
 reposition the label or delete the label. Labels can be moved:
 pressing the shift key while dragging creates a snap to grid feature.
-</p>
 
-</li><li> Drawing lines and arrows
+     <li>Drawing lines and arrows
 
-<p><code>Genesis</code> provides very simple functionality for adding lines and
+     <p><code>Genesis</code> provides very simple functionality for adding lines and
 arrows. Click on the icon and the place the line or arrow by (a)
 clicking on the point where the line/arrow should start, (b)
 <em>dragging</em> to the point where the line should finish, and (c)
 releasint the  mouse. Currently no line editing functionality is
 provided, other than being able to delete a a line.
-</p>
 
-</li></ul>
+</ul>
 
-<a name="Hiding-Subjects-and-Population-Groups-from-the-Graph"></a>
 <h3 class="section">4.4 Hiding Subjects and Population Groups from the Graph</h3>
 
-<ul>
-<li> Hiding Subjects
+     <ul>
+<li>Hiding Subjects
 
-<p>To hide a subject from the graph, click on the subject on the graph to bring up the subject dialog. From this menu you can choose to hide the subject from the graph.
-</p>
-</li><li> Hiding Groups 
+     <p>To hide a subject from the graph, click on the subject on the graph to bring up the subject dialog. From this menu you can choose to hide the subject from the graph.
 
-<p>To hide a population group from the graph, click on the group in the key to bring up the population group dialog and check the box labelled <code>Hide this group from the graph</code>.
-</p>
-</li><li> Showing Hidden Subjects and Groups 
+     <li>Hiding Groups
 
-<p>To reshow a subject that has been hidden, click on the <code>Select Hidden Individuals or Groups</code> button and from the drop down menu that pops up, select the name of the subject or group that you wish to show. From the subject dialog you can now uncheck the <code>Hide this Individual from the Graph</code> or <code>Hide this group from the Graph</code> checkbox.
-</p>
-</li></ul>
+     <p>To hide a population group from the graph, click on the group in the key to bring up the population group dialog and check the box labelled <code>Hide this group from the graph</code>.
 
-<a name="Searching-for-a-Subject"></a>
+     <li>Showing Hidden Subjects and Groups
+
+     <p>To reshow a subject that has been hidden, click on the <code>Select Hidden Individuals or Groups</code> button and from the drop down menu that pops up, select the name of the subject or group that you wish to show. From the subject dialog you can now uncheck the <code>Hide this Individual from the Graph</code> or <code>Hide this group from the Graph</code> checkbox.
+
+</ul>
+
 <h3 class="section">4.5 Searching for a Subject</h3>
 
 <p>To search for a subject in the graph by name, click the <code>Search for individual</code> button in the toolbar. In the dialog, enter the Name (first, last or both) of the individual you wish to find and click <code>Ok</code>. If the individual was found in the data, it will be selected and the subject dialog for that individual will open. If the individual was not found, a message will display.
-</p>
-<a name="Rotating-the-Graph"></a>
+
 <h3 class="section">4.6 Rotating the Graph</h3>
 
 <p>To rotate a 3D PCA plot, click the <code>Show/Hide 3D PCA Rotate Panel</code> button in the toolbar. This will bring up the rotate panel which contains a slider which can be dragged to rotate the graph about the z-axis.
-</p>
 
-<a name="Advice-on-data-formats"></a>
 <h3 class="section">4.7 Advice on data formats</h3>
 
-<p>Eigenstrat is directly supported by the Genesis. 
-</p>
-<a name="SNPRelate"></a>
+<p>Eigenstrat is directly supported by the Genesis.
+
 <h4 class="subsection">4.7.1 SNPRelate</h4>
 
 <p>The SNPRelate R package of Zheng <em>et al</em> [2012] can be used to do
@@ -228,9 +189,10 @@ PC-analysis. However, since it is an R-package there is no SNPRelate
 default format since output is fully programmable in R. We support the
 following output: a file that contains the eigenvalues, followed by the
 eigenvectors, produced using the following R commands.
-</p>
-<pre class="verbatim">pca &lt;- snpgdsPCA(genofile,snp.id=snpset)
-write.table(pca$eigenval,&quot;pca.rel&quot;,sep=&quot;\t&quot;,quote=FALSE)
+
+<pre class="verbatim">
+pca &lt;- snpgdsPCA(genofile,snp.id=snpset)
+write.table(pca$eigenval,"pca.rel",sep="\t",quote=FALSE)
 
 tab1 &lt;- data.frame(sample.id = pca$sample.id,
      pop = factor(pop_code)[match(pca$sample.id, sample.id)],
@@ -246,10 +208,9 @@ tab1 &lt;- data.frame(sample.id = pca$sample.id,
      EV10 = pca$eigenvect[,10],
      stringsAsFactors = FALSE)
 
-write.table(tab1,&quot;pca.rel&quot;,sep=&quot;\t&quot;,quote=FALSE,append=TRUE)
+write.table(tab1,"pca.rel",sep="\t",quote=FALSE,append=TRUE)
 </pre>
 
-<a name="flashpca"></a>
 <h4 class="subsection">4.7.2 flashpca</h4>
 
 <p>FlashPCA is designed to perform PCA on very large data set. It takes as
@@ -258,55 +219,55 @@ components. We have a script <em>flashpca2evec</em> which converts the
 data into a format that <code>Genesis</code> can read. Because the flashpca
 output has no information about the sample IDs, <em>flashpca2evec</em>
 also needs the fam file as input. This script <strong>requires Python 2.7</strong>.
-</p>
-<p>By default, flashpca calls its output files <em>eigenvalues.txt</em> and
+
+   <p>By default, flashpca calls its output files <em>eigenvalues.txt</em> and
 <em>eigenvectors.txt</em> and this is (by default) what <em>flash2pca</em>
 expects. For example:
-</p>
-<pre class="verbatim">flashpca2evec --fam data.fam --out data.evec
+
+<pre class="verbatim">
+flashpca2evec --fam data.fam --out data.evec
 </pre>
-<p>However, if the files have other names, the appropriate flags can be used
-</p>
-<pre class="verbatim">flashpca2evec --fam data.fam --eigenval file1.evals --eigenvec sample.csv --out data.evec
+
+<p class="noindent">However, if the files have other names, the appropriate flags can be used
+
+<pre class="verbatim">
+flashpca2evec --fam data.fam --eigenval file1.evals --eigenvec sample.csv --out data.evec
 </pre>
-<a name="plink2evec"></a>
+
 <h4 class="subsection">4.7.3 plink2evec</h4>
 
 <p>PLINK 2 [Purcell and Chang 2014] (and its alpha release plink 1.9)
 supports PCA directly. Genesis can handle these files natively but
-assumes that the default plink&rsquo;s default naming convention is used
+assumes that the default plink's default naming convention is used
 (e.g., a <em>.eigenvec</em> suffix). If this is not followed, Genesis will
 not be able to recognise the file type.  Thus plink2evec is bundled for
 that purpose.
-</p>
-<p><em>plink2evec</em> converts the plink output files
+
+   <p><em>plink2evec</em> converts the plink output files
 into the format that Genesis can read.
-</p>
-<p>By default PLINK calls its output files <em>plink.eigenval</em> and
+
+   <p>By default PLINK calls its output files <em>plink.eigenval</em> and
 <em>plink.eigenvec</em> and this is (by default) what <em>plink2evec</em>
 expects. For exmaple:
-</p>
-<pre class="verbatim">plink2evec --out result.pca.evec
+
+<pre class="verbatim">
+plink2evec --out result.pca.evec
 </pre>
-<p>However, if the files have other names, the appropriate flags can be used
-</p>
-<pre class="verbatim">plink2evec --eigenval file1.evals --eigenvec sample.csv --out data.evec
+
+<p class="noindent">However, if the files have other names, the appropriate flags can be used
+
+<pre class="verbatim">
+plink2evec --eigenval file1.evals --eigenvec sample.csv --out data.evec
 </pre>
-<p>And if as is common in plink usage, the eigenvectors and eigenvalues
-file was specified by using the <em>plink</em> <code>--out</code> flag, then 
+
+<p class="noindent">And if as is common in plink usage, the eigenvectors and eigenvalues
+file was specified by using the <em>plink</em> <code>--out</code> flag, then
 <em>plink2evec</em> can use its <code>--bfile</code> flag
-</p>
-<pre class="verbatim">plink --bfile sample --pca --out sample
+
+<pre class="verbatim">
+plink --bfile sample --pca --out sample
 plink2evec --bfile sample --out sample.pca.evec
 </pre>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="Saving-and-Exporting.html#Saving-and-Exporting" accesskey="n" rel="next">Saving and Exporting</a>, Previous: <a href="Creating-Structure-Plots.html#Creating-Structure-Plots" accesskey="p" rel="prev">Creating Structure Plots</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
-</div>
+   </body></html>
 
-
-
-</body>
-</html>
