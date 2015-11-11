@@ -449,14 +449,13 @@ public class AdmixGraphMethods {
      */
     private void setHorizontalPopulationGroupMarkers(int width,int maxElements,int height, 
 						     AdmixGraph graph, DrawInfo drawInfo) {		
-	int[] count = getStartingPos(width,maxElements,drawInfo);		
+    int[] count = getStartingPos(width,maxElements,drawInfo);		
 	Rectangle[] markers = new Rectangle[proj.getCurrentGroups().length];
-	for(int i=0;i<proj.getCurrentGroups().length;i++){		
-	    AdmixPopulationGroup pop = proj.findPopGroupByOrder(i);			
+	for(int i=0;i<proj.getCurrentGroups().length;i++){	
+	    AdmixPopulationGroup pop = proj.findPopGroupByOrder(i);
 	    markers[pop.getID()]=new Rectangle(count[pop.getRow()],pop.getRow()*height,
 					       width*pop.getNoVisibleMembers(),height);
 	    count[pop.getRow()]+=pop.getNoVisibleMembers()*width;	
-				
 	}	
 	drawInfo.setPopGroupMarkers(markers);
     }

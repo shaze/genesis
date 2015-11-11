@@ -64,16 +64,16 @@ class AdmixMouseListener implements MouseListener{
     }
 
     @Override
-	public void mouseUp(MouseEvent e) {
-	proj = UI.ui.findAdmixProjByTab(UI.tabs.getSelection()[0]);
-	Point relativePt = findPositionOfClick();
-	int graphClicked = findIndexOfGraphClicked(relativePt);
+    public void mouseUp(MouseEvent e) {
+    	proj = UI.ui.findAdmixProjByTab(UI.tabs.getSelection()[0]);
+    	Point relativePt = findPositionOfClick();
+    	int graphClicked = findIndexOfGraphClicked(relativePt);
 
-	if(e.button==3){
-	    rightClick(relativePt, graphClicked);
-	}else{
-	    leftClick(relativePt, graphClicked, e);
-	}
+    	if(e.button==3){
+    		rightClick(relativePt, graphClicked);
+    	}else{
+    		leftClick(relativePt, graphClicked, e);
+    	}
 
     }
 
@@ -109,12 +109,12 @@ class AdmixMouseListener implements MouseListener{
 
 
     private void baseColourOptions(int graphClicked, int oth) {
-	// SH: this is used to allow user to recolour a graph to 
-	// match the colouring of another graph
-	AdmixGraph curr  = proj.getGraphs().get(graphClicked);
-	AdmixGraph other = proj.getGraphs().get(oth);
-	curr.baseColoursOn(other,proj.getPhenoColumn());
-	UI.ui.drawGraph();
+    	// SH: this is used to allow user to recolour a graph to 
+    	// match the colouring of another graph
+    	AdmixGraph curr  = proj.getGraphs().get(graphClicked);
+    	AdmixGraph other = proj.getGraphs().get(oth);
+    	curr.baseColoursOn(other,proj.getPhenoColumn());
+    	UI.ui.drawGraph();
     }
 
 
@@ -220,13 +220,13 @@ class AdmixMouseListener implements MouseListener{
 
 
     private void addBaseColorOption(Menu popupMenu, final int graphClicked, String strlab, final int delta) {
-	MenuItem labelItem = new MenuItem(popupMenu, SWT.NONE);
-	labelItem.setText("Colour this graph similar to "+strlab);
-	labelItem.addSelectionListener(new SelectionAdapter() {
-		public void widgetSelected(SelectionEvent event) {
-		    baseColourOptions(graphClicked,graphClicked+delta);
-		}
-	    });
+    	MenuItem labelItem = new MenuItem(popupMenu, SWT.NONE);
+    	labelItem.setText("Colour this graph similar to "+strlab);
+    	labelItem.addSelectionListener(new SelectionAdapter() {
+    		public void widgetSelected(SelectionEvent event) {
+    			baseColourOptions(graphClicked,graphClicked+delta);
+    		}
+    	});
 
     }
 

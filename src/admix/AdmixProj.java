@@ -47,10 +47,9 @@ import java.util.LinkedList;
 
 public class AdmixProj  {
 	private String name;
-	
+
 	private ArrayList<AdmixGraph> graphs = new ArrayList<AdmixGraph>() ;
 	private ArrayList<DrawInfo> drawInfo=new ArrayList<DrawInfo>();
-	
 	private int id;
 	private TabItem tab;
 	private PaintListener paintListener;
@@ -70,13 +69,13 @@ public class AdmixProj  {
 	private ArrayList<SavedGroupNames> savedGroupNames = new ArrayList<SavedGroupNames>();
 	private ArrayList<DrawObject> drawObjects = new ArrayList<DrawObject>();
 	private AdmixPopulationGroup[][] groups;
-        private int sortoptions=0;
-	
+	private int sortoptions=0;
+
 	public AdmixProj() {
 		super();		
 	}
-	
-	
+
+
 	public String getHeading() {
 		return heading;
 	}
@@ -87,91 +86,91 @@ public class AdmixProj  {
 
 
 
-    private  void setMembersInGroup
+	private  void setMembersInGroup
 	(AdmixPopulationGroup populationGroup, int phenoColumn) {
-	int count=0,countVisible=0;
-	for(AdmixSubject a: getGraphs().get(0).getAdmixData()){
-	    if(a.getGroups()[phenoColumn].getID()==populationGroup.getID()){
-		count++;
-		if(a.getVisible()&&a.getGroups()[phenoColumn].getVisible()){
-		    countVisible++;
+		int count=0,countVisible=0;
+		for(AdmixSubject a: getGraphs().get(0).getAdmixData()){
+			if(a.getGroups()[phenoColumn].getID()==populationGroup.getID()){
+				count++;
+				if(a.getVisible()&&a.getGroups()[phenoColumn].getVisible()){
+					countVisible++;
+				}
+			}
 		}
-	    }
+
+		populationGroup.setNoMembers(count);
+		populationGroup.setNoVisibleMembers(countVisible);
+
 	}
 
-	populationGroup.setNoMembers(count);
-	populationGroup.setNoVisibleMembers(countVisible);
-
-    }
-
-    public void setMembersInGroups(int phenoColumn) {
-	for(AdmixPopulationGroup p:getGroups()[phenoColumn]){
-	    setMembersInGroup(p,phenoColumn);
-	}
-    }
-
-
-    int getNoVisibleSubjects() {
-	AdmixGraph graph = getGraphs().get(0);
-	int count=0;
-	for(AdmixSubject a:graph.getAdmixData()){
-	    if(graph.getProj().hasPheno()){
-		if(a.getVisible()&&a.getGroups()[graph.getProj().getPhenoColumn()].getVisible()){
-		    count++;
+	public void setMembersInGroups(int phenoColumn) {
+		for(AdmixPopulationGroup p:getGroups()[phenoColumn]){
+			setMembersInGroup(p,phenoColumn);
 		}
-	    }else{
-		if(a.getVisible()){
-		    count++;
-		}
-	    }
 	}
-	return count;
-    }
+
+
+	int getNoVisibleSubjects() {
+		AdmixGraph graph = getGraphs().get(0);
+		int count=0;
+		for(AdmixSubject a:graph.getAdmixData()){
+			if(graph.getProj().hasPheno()){
+				if(a.getVisible()&&a.getGroups()[graph.getProj().getPhenoColumn()].getVisible()){
+					count++;
+				}
+			}else{
+				if(a.getVisible()){
+					count++;
+				}
+			}
+		}
+		return count;
+	}
 
 
 
 
-    int getHorizontalPopMargin() {
-	GC gc = new GC(UI.display);
-	gc.setFont(new Font(UI.display,this.getGroupFont()));
-	int result = gc.textExtent("p").y;
-	gc.dispose();
-	return result;
-    }
+	int getHorizontalPopMargin() {
+		GC gc = new GC(UI.display);
+		gc.setFont(new Font(UI.display,this.getGroupFont()));
+		int result = gc.textExtent("p").y;
+		gc.dispose();
+		return result;
+	}
 
-    private int getHeadingMargin() {
-	int margin;
+	private int getHeadingMargin() {
+		int margin;
 
-	GC gc = new GC(UI.mainWindow);
-	gc.setFont(new Font(gc.getDevice(),this.getHeadingFont()));
-	margin = gc.textExtent(this.getHeading()).y + 10;
-	gc.dispose();			
-	return margin;
-    }
+		GC gc = new GC(UI.mainWindow);
+		gc.setFont(new Font(gc.getDevice(),this.getHeadingFont()));
+		margin = gc.textExtent(this.getHeading()).y + 10;
+		gc.dispose();			
+		return margin;
+	}
 
-    public  void draw() {
-	ScrolledComposite comp = (ScrolledComposite)this.getTab().getControl();
-	Point origin=comp.getOrigin();
+	public  void draw() {
+		ScrolledComposite comp = (ScrolledComposite)this.getTab().getControl();
+		Point origin=comp.getOrigin();
 
-	try{
-	    comp.removePaintListener(this.getPaintListener());
-	}catch(IllegalArgumentException e){}	
-
-
-	AdmixGraphMethods gm=new AdmixGraphMethods(this,UI.mainWindow);		
-	gm.setDrawInfo(comp.getClientArea());
-
-	createImageLabel(comp);
-
-	resetComp(comp,origin);
-    }
+		try{
+			comp.removePaintListener(this.getPaintListener());
+		}catch(IllegalArgumentException e){}	
 
 
+		AdmixGraphMethods gm=new AdmixGraphMethods(this,UI.mainWindow);		
+		gm.setDrawInfo(comp.getClientArea());
+
+		createImageLabel(comp);
+
+		resetComp(comp,origin);
+	}
 
 
 
 
-      public void createPopGroups(){		
+
+
+	public void createPopGroups(){		
 		int maxGroups=getMaxGroups();
 		setGroups(new AdmixPopulationGroup[maxGroups][]);
 		resetGroups(maxGroups);
@@ -270,12 +269,12 @@ public class AdmixProj  {
 		}
 	}
 
-    //public static void resetGroups(AdmixGraph graph) {
-    //	int maxGroups=getMaxGroups();
-    //	for(AdmixSubject a:graph.getAdmixData()){			
-    //		a.setGroup(new AdmixPopulationGroup[maxGroups]);
-    //	}								
-    //}
+	//public static void resetGroups(AdmixGraph graph) {
+	//	int maxGroups=getMaxGroups();
+	//	for(AdmixSubject a:graph.getAdmixData()){			
+	//		a.setGroup(new AdmixPopulationGroup[maxGroups]);
+	//	}								
+	//}
 
 
 	private int getMaxGroups() {
@@ -290,112 +289,112 @@ public class AdmixProj  {
 
 
 
-    private void createImageLabel(Control canvas) {
+	private void createImageLabel(Control canvas) {
 
-	WaitDialog.start();
+		WaitDialog.start();
 
-	ScrolledComposite comp=(ScrolledComposite)canvas;
-	int imageWidth = getImageWidth();	
-	int imageHeight = getImageHeight(); 
-	Image img= new Image(UI.display,imageWidth,imageHeight);
+		ScrolledComposite comp=(ScrolledComposite)canvas;
+		int imageWidth = getImageWidth();	
+		int imageHeight = getImageHeight(); 
+		Image img= new Image(UI.display,imageWidth,imageHeight);
 
-	GC gc = new GC(img);
-	SWTCanvas drawable = new SWTCanvas(gc);
-	for(int i=0;i< getGraphs().size();i++){
-	    AdmixGraph g;
-	    g=getGraphs().get(i);
-	    AdmixDrawTools dT = new AdmixDrawTools(drawable,getDrawInfo().get(i),g,
-						   canvas.getSize(),UI.display,i);
-	    dT.drawGraph();
+		GC gc = new GC(img);
+		SWTCanvas drawable = new SWTCanvas(gc);
+		for(int i=0;i< getGraphs().size();i++){
+			AdmixGraph g;
+			g=getGraphs().get(i);
+			AdmixDrawTools dT = new AdmixDrawTools(drawable,getDrawInfo().get(i),g,
+					canvas.getSize(),UI.display,i);
+			dT.drawGraph();
+		}
+
+		Label imgLabel = new Label(comp,SWT.NONE);
+		imgLabel.setImage(img);
+		imgLabel.setSize(imgLabel.computeSize(SWT.DEFAULT,SWT.DEFAULT));
+		imgLabel.addMouseListener(new AdmixMouseListener(this, comp));
+		comp.setContent(imgLabel);
+		setImageLabel(imgLabel);
+		setGC(gc);
+		setImg(img);
+
+		WaitDialog.end();
+
 	}
 
-	Label imgLabel = new Label(comp,SWT.NONE);
-	imgLabel.setImage(img);
-	imgLabel.setSize(imgLabel.computeSize(SWT.DEFAULT,SWT.DEFAULT));
-	imgLabel.addMouseListener(new AdmixMouseListener(this, comp));
-	comp.setContent(imgLabel);
-	setImageLabel(imgLabel);
-	setGC(gc);
-	setImg(img);
+	private static void resetComp(ScrolledComposite comp, Point origin) {
+		comp.getParent().layout(false, true);
+		comp.redraw();			
+		comp.update();		
+		comp.setOrigin(origin);
 
-	WaitDialog.end();
-
-    }
-
-    private static void resetComp(ScrolledComposite comp, Point origin) {
-	comp.getParent().layout(false, true);
-	comp.redraw();			
-	comp.update();		
-	comp.setOrigin(origin);
-
-    }
-
-
-
-    public int getImageWidth() {	
-	if(this.isHorizontal()){		
-	    int noSubjects = getNoVisibleSubjects();
-	    int subjectWidth = this.getDrawInfo().get(0).getSubjectWidth();
-	    int margin =60 + this.getMargins()[0]+this.getMargins()[2];
-	    return (noSubjects*subjectWidth)+margin;	
-	}else{
-	    int imageWidth=(this.getNoRows()*(this.getGraphHeight()+this.getSeparationDistance()))+50;
-	    if(this.getShowPopLabels()){
-		imageWidth+=120;
-	    }
-	    int margin =this.getMargins()[0]+this.getMargins()[2];
-	    return imageWidth+margin;
 	}
 
-    }
 
-    public int getImageHeight() {
-	if(isHorizontal()){
-	    int imageHeight=(this.getNoRows()*(this.getGraphHeight()+this.getSeparationDistance()))+15;
-	    if(!this.getHeading().equals("")){
-		imageHeight+=getHeadingMargin();
-	    }
-	    if(this.getShowPopLabels()){
-		imageHeight+=getHorizontalPopMargin();
-	    }
-	    int margin =this.getMargins()[1]+this.getMargins()[3];
-	    return imageHeight+margin;
-	}else{
-	    int noSubjects = getNoVisibleSubjects();
-	    int subjectWidth = this.getDrawInfo().get(0).getSubjectWidth();
-	    int margin =70 + this.getMargins()[1]+this.getMargins()[3];
-	    return (noSubjects*subjectWidth)+margin;	
+
+	public int getImageWidth() {	
+		if(this.isHorizontal()){		
+			int noSubjects = getNoVisibleSubjects();
+			int subjectWidth = this.getDrawInfo().get(0).getSubjectWidth();
+			int margin =60 + this.getMargins()[0]+this.getMargins()[2];
+			return (noSubjects*subjectWidth)+margin;	
+		}else{
+			int imageWidth=(this.getNoRows()*(this.getGraphHeight()+this.getSeparationDistance()))+50;
+			if(this.getShowPopLabels()){
+				imageWidth+=120;
+			}
+			int margin =this.getMargins()[0]+this.getMargins()[2];
+			return imageWidth+margin;
+		}
+
 	}
 
-    }
+	public int getImageHeight() {
+		if(isHorizontal()){
+			int imageHeight=(this.getNoRows()*(this.getGraphHeight()+this.getSeparationDistance()))+15;
+			if(!this.getHeading().equals("")){
+				imageHeight+=getHeadingMargin();
+			}
+			if(this.getShowPopLabels()){
+				imageHeight+=getHorizontalPopMargin();
+			}
+			int margin =this.getMargins()[1]+this.getMargins()[3];
+			return imageHeight+margin;
+		}else{
+			int noSubjects = getNoVisibleSubjects();
+			int subjectWidth = this.getDrawInfo().get(0).getSubjectWidth();
+			int margin =70 + this.getMargins()[1]+this.getMargins()[3];
+			return (noSubjects*subjectWidth)+margin;	
+		}
+
+	}
 
 
 
-    public int getSortOption(){
-	return sortoptions;
-    }
+	public int getSortOption(){
+		return sortoptions;
+	}
 
 
-    public void setSortOption(int newval){
-	sortoptions=newval;
-    }
+	public void setSortOption(int newval){
+		sortoptions=newval;
+	}
 
 
 
-    void shiftPop(AdmixPopulationGroup group, int delta){
+	void shiftPop(AdmixPopulationGroup group, int delta){
 
-	int order, oldorder;
-	int N=getGroups()[getPhenoColumn()].length-1;
-	AdmixPopulationGroup swap;
-	oldorder=order=group.getOrder();
-	do {
-	    if((delta<0)&&(order==0) || ((delta>0)&&(order==N))) return;
-	    order=order+delta;
-	    swap = findPopGroupByOrder(order);
-	} while (!swap.getVisible());
-        group.setOrder(order);
-	swap.setOrder(oldorder);
-    }
+		int order, oldorder;
+		int N=getGroups()[getPhenoColumn()].length-1;
+		AdmixPopulationGroup swap;
+		oldorder=order=group.getOrder();
+		do {
+			if((delta<0)&&(order==0) || ((delta>0)&&(order==N))) return;
+			order=order+delta;
+			swap = findPopGroupByOrder(order);
+		} while (!swap.getVisible());
+		group.setOrder(order);
+		swap.setOrder(oldorder);
+	}
 
 
 	public AdmixPopulationGroup findPopGroupByID(int id){		
@@ -416,7 +415,7 @@ public class AdmixProj  {
 		return null;
 	}
 
-        public AdmixPopulationGroup findPopGroupByOrder(int order){
+	public AdmixPopulationGroup findPopGroupByOrder(int order){
 		for(AdmixPopulationGroup p:getCurrentGroups()){
 			if(p.getOrder()==order){
 				return p;
@@ -453,7 +452,7 @@ public class AdmixProj  {
 	public FontData getHeadingFont() {
 		return headingFont.toFontData();
 	}
-	
+
 	public MyFont getRawHeadingFont(){
 		return headingFont;
 	}
@@ -461,7 +460,7 @@ public class AdmixProj  {
 	public void setRawHeadingFont(MyFont font){
 		headingFont = font;
 	}
-	
+
 	public void setHeadingFont(FontData headingFont) {
 		this.headingFont.setName(headingFont.getName());
 		this.headingFont.setSize(headingFont.getHeight());
@@ -481,18 +480,18 @@ public class AdmixProj  {
 	public PaintListener getPaintListener() {
 		return paintListener;
 	}
-	
+
 	public void setPaintListener(PaintListener paintListener) {
 		this.paintListener = paintListener;
 	}
-	
+
 	public void setTab(TabItem tab) {
 		this.tab = tab;
 	}
 	public TabItem getTab() {
 		return tab;
 	}
-	
+
 	public ArrayList<AdmixGraph> getGraphs() {
 		return graphs;
 	}
@@ -563,7 +562,7 @@ public class AdmixProj  {
 
 	public void setImageLabel(Label imgLabel) {
 		this.image = imgLabel;
-		
+
 	}
 
 
@@ -630,7 +629,7 @@ public class AdmixProj  {
 	public FontData getGroupFont() {	
 		return groupFont.toFontData();
 	}
-	
+
 	public void setGroupFont(FontData groupFont){
 		this.groupFont.setName(groupFont.getName());
 		this.groupFont.setSize(groupFont.getHeight());
@@ -645,12 +644,12 @@ public class AdmixProj  {
 
 	public void setRawGroupFont(MyFont groupFont) {
 		this.groupFont=groupFont;
-		
+
 	}
 	public boolean setFam(boolean b){
 		return fam=b;
 	}
-	
+
 	public boolean hasFam(){
 		return fam;
 	}
@@ -699,7 +698,7 @@ public class AdmixProj  {
 	public void setGroups(AdmixPopulationGroup[][] groups) {
 		this.groups = groups;
 	}
-	
+
 	public AdmixPopulationGroup[] getCurrentGroups(){
 		return groups[phenoColumn];
 	}
@@ -710,5 +709,5 @@ public class AdmixProj  {
 				? true : false);		
 	}
 
-	
+
 }

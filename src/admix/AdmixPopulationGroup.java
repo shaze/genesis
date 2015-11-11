@@ -60,6 +60,10 @@ public class AdmixPopulationGroup implements Serializable{
 	public void setRow(int row) {
 		this.row = row;
 	}
+	
+	public void show(){
+		System.out.println("Group: "+name+"/"+displayName+"/"+ID+"/"+order);
+	}
 
 	public int getID() {
 		return ID;
