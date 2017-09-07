@@ -3,7 +3,8 @@ Population structure and PCA viewer
 
 Program takes as input output of PCA or admixture programs and allows user to interactively produce publication quality pictures. 
 
-You need only download the Genesis.jar file which requires Java 1.7 or 1.8.
+* *the manual can be found in the _doc_ directory*
+* You need only download the Genesis.jar file which requires Java 1.7 or 1.8.
 
 Run the program like this on an Apple
 
