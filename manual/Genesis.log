@@ -1,12 +1,13 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdfetex 2014.11.3)  2 OCT 2015 17:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdfetex 2017.7.25)  9 MAR 2018 14:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/scott/Dropbox/Genesis/manual/Genesis.texi
-(/Users/scott/Dropbox/Genesis/manual/Genesis.texi
-(/usr/local/texlive/2014/texmf-dist/tex/texinfo/texinfo.tex
-Loading texinfo [version 2014-05-20.16]:
+**\catcode126=12 \def\normaltilde{~}\catcode126=13 \let~\normaltilde  \input ./
+Genesis.texi
+(./Genesis.texi
+(/usr/share/texlive/texmf-local/texmf-compat/tex/texinfo/texinfo.tex
+Loading texinfo [version 2013-02-01.11]:
 \bindingoffset=\dimen16
 \normaloffset=\dimen17
 \pagewidth=\dimen18
@@ -129,7 +130,7 @@ defuns,
 \SAVEfootins=\box27
 \SAVEmargin=\box28
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/epsf/epsf.tex
+(/usr/share/texlive/texmf-dist/tex/generic/epsf/epsf.tex
 This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsffilein=\read1
 \epsfframemargin=\dimen39
@@ -150,6 +151,7 @@ This is `epsf.tex' v2.7.4 <14 February 2011>
  formatting,
 \defaultparindent=\dimen47
  and turning on texinfo input format.)
+(./Genesis.aux)
 \openout1 = `Genesis.aux'.
 
 @cpindfile=@write2
@@ -171,18 +173,14 @@ This is `epsf.tex' v2.7.4 <14 February 2011>
 
 \openout7 = `Genesis.pg'.
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] Chapter
- 1
+{/usr/share/texlive/texmf/fonts/map/pdftex/updmap/pdftex.map}] Chapter 1
 \openout0 = `Genesis.toc'.
 
- </Users/scott/Dropbox/Genesis/manual/pca.jpg> </Users/scott/Dropbox/Genesis/ma
-nual/admix.pdf> [1] Chapter 2 [2] [3]
-Cross reference values unknown; you must run TeX again. </Users/scott/Dropbox/G
-enesis/manual/n.pdf
+ <./pca.jpg> <./admix.pdf> [1] Chapter 2 [2] [3] <./n.pdf
 
-pdfTeX warning: pdfetex (file /Users/scott/Dropbox/Genesis/manual/n.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
-> [4] Chapter 3 [5] [6] </Users/scott/Dropbox/Genesis/manual/popgroupopts.jpg>
+pdfTeX warning: pdfetex (file ./n.pdf): PDF inclusion: multiple pdfs with page 
+group included in a single page
+> [4] Chapter 3 [5] [6] <./popgroupopts.jpg>
 Underfull \hbox (badness 10000) in paragraph at lines 454--457
  
 
@@ -190,7 +188,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 454--457
 .@glue(@leftskip) 21.68121
 .@glue(@rightskip) 0.0
 
-[7] </Users/scott/Dropbox/Genesis/manual/famorder.jpg>
+[7] <./famorder.png>
 Underfull \hbox (badness 10000) in paragraph at lines 481--483
  
 
@@ -198,28 +196,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--483
 .@glue(@leftskip) 21.68121
 .@glue(@rightskip) 0.0
 
- </Users/scott/Dropbox/Genesis/manual/blueorder.jpg> [8] </Users/scott/Dropbox/
-Genesis/manual/multdifferent.jpg>
-/Users/scott/Dropbox/Genesis/manual/Genesis.texi:553: Could not find image file
- multsame for pdf.
-@dopdfimage ...uld not find image file #1 for pdf}
-                                                  @else @gdef @pdfimgext {JP...
+ <./blueorder.png> [8] <./multdifferent.jpg> <./multsame.png> [9] [10]
+Overfull \hbox (14.77765pt too wide) in paragraph at lines 678--678
+[][] |
 
-@imagexxx ...t @fi @ifpdf @dopdfimage {#1}{#2}{#3}
-                                                  @else @setbox 0 = @hbox {@...
+@hbox(7.60416+2.43333)x433.62
+.@hbox(0.0+0.0)x0.0
+.@hbox(7.60416+2.43333)x448.39764
+..@penalty 10000
+..@glue 5.74869
+..@penalty 10000
+..@glue 5.74869
+..@texttt -
+..etc.
+.@penalty 10000
+.@glue(@parfillskip) 0.0 plus 1.0fil
+.@glue(@rightskip) 0.0
+.etc.
 
-@image ...true @fi @else @imagexxx #1,,,,,@finish 
-                                                  @fi 
-<argument> ...@ignorespaces @image {multsame,12cm}
-                                                  @unskip @hfil 
-@centersub ...enalty @fi @line {@kern @leftskip #1
-                                                  @kern @rightskip }
-@\center ...{@hfil @ignorespaces #1@unskip @hfil }
-                                                  @let @centersub @relax 
-l.553 @center @image{multsame,12cm}
-                                   
-? q
-OK, entering @batchmode...
+Chapter 4 [11] [12] [13] [14] [15]
+Overfull \hbox (78.01321pt too wide) in paragraph at lines 944--944
+[][] |
 
-!pdfTeX error: pdfetex (file multsame.): cannot find image file
- ==> Fatal error occurred, no output PDF file produced!
+@hbox(6.69167+2.43333)x433.62
+.@hbox(0.0+0.0)x0.0
+.@hbox(6.69167+2.43333)x511.63321
+..@texttt f
+..@texttt l
+..@texttt a
+..@texttt s
+..@texttt h
+..etc.
+.@penalty 10000
+.@glue(@parfillskip) 0.0 plus 1.0fil
+.@glue(@rightskip) 0.0
+.etc.
+
+Chapter 5 [16] [17] [18] Chapter 6 [19]
+Overfull \hbox (11.00912pt too wide) in paragraph at lines 1050--1052
+[]@textrm Any tech-ni-cal ques-tions on the use of @texttt Genesis[] @textrm sh
+ould be sent to @texttt genesis@bioinf.wits.ac.za[]@textrm . |
+
+@hbox(7.60416+2.43333)x433.62, glue set - 1.0
+.@hbox(0.0+0.0)x15.0
+.@kern -15.0
+.@textrm A
+.@textrm n
+.@kern-0.30418
+.etc.
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+[20] ) 
+Here is how much of TeX's memory you used:
+ 1911 strings out of 497118
+ 23254 string characters out of 3207143
+ 60282 words of memory out of 3000000
+ 2984 multiletter control sequences out of 15000+200000
+ 32127 words of font info for 112 fonts, out of 3000000 for 9000
+ 51 hyphenation exceptions out of 8191
+ 17i,6n,16p,705b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Genesis.pdf (21 pages, 773714 bytes).
+PDF statistics:
+ 167 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+

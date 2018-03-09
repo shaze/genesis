@@ -134,8 +134,8 @@ The latest code can be found at
 
 @code{Genesis} does not special installation and the file can simply be
 executed using Java. It does, however, @b{require the Java SE Runtime
-Environment 1.7 or higher to be installed on the user's system}. 
-The latest version of the Java SE Runtime Environment 1.7 can be found at: 
+Environment 1.8 or higher to be installed on the user's system}. 
+The latest version of the Java SE Runtime Environment 1.8 can be found at: 
 @url{http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html}
 
 To check if you already have Java installed, you can open your Operating
@@ -174,7 +174,7 @@ apt-get install  libswt-gtk-3-java  openjdk-7-jre-headless
 
 @section Running @code{Genesis}
 
-@b{Windows and Linux} If the Java SE Runtime Environment 1.7 is installed, the user should be able to open @code{Genesis} by double-clicking the file. If this does not work, the user will have to launch the jar manually through a command line editor (cmd in windows or terminal in linux) using the following command.
+@b{Windows and Linux} If the Java SE Runtime Environment 1.8 is installed, the user should be able to open @code{Genesis} by double-clicking the file. If this does not work, the user will have to launch the jar manually through a command line editor (cmd in windows or terminal in linux) using the following command.
 
 @code{java -jar Genesis.jar}
 
@@ -191,7 +191,7 @@ sudo chmod a+x /usr/local/bin/genesis
 and then, the program can be run by executing the command @code{genesis}
 
 @b{OS X}:
-Ensure that the Java SE Runtime Environment 1.7 is installed. In OSX, the user must launch the file through the command line with an extra argument as follows
+Ensure that the Java SE Runtime Environment 8 is installed. In OSX, the user must launch the file through the command line with an extra argument as follows
 
 @code{java -XstartOnFirstThread -jar Genesis.jar}
 
