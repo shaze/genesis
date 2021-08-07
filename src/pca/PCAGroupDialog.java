@@ -157,24 +157,20 @@ public class PCAGroupDialog {
 		shell.setLayout(new GridLayout(1, false));
 
 		GridData gd = new GridData(SWT.FILL,SWT.FILL,true,true);
-		gd.heightHint=25;
 		Label heading = new Label(shell, SWT.CENTER);
 
 		heading.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true));
 		heading.setText("Group: "+group.getDisplayName()+"");
-		//This creates a label
-		
-		
-		
-
-		// Start with previous colour
 		col = new Color(shell.getDisplay(),oldColour);
 
 		//creates grid for buttons
 		Composite buttonlayout = new Composite(shell, SWT.BORDER);
 		GridData compositeImportData = new GridData(SWT.FILL, SWT.FILL, true, false);
 		buttonlayout.setLayoutData(compositeImportData);
-		buttonlayout.setLayout(new GridLayout(2, false));
+		GridLayout gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		gl.marginBottom=0;
+		buttonlayout.setLayout(gl);
 
 		// Use a label full of spaces to show the colour
 
@@ -209,7 +205,10 @@ public class PCAGroupDialog {
 		
 		Composite compOrder= new Composite(shell, SWT.BORDER);		    
 		compOrder.setLayoutData(compositeImportData);
-		compOrder.setLayout(new GridLayout(2, false));
+		gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		gl.marginBottom=0;
+		compOrder.setLayout(gl);
 
 		
 
@@ -234,7 +233,10 @@ public class PCAGroupDialog {
 
 		Composite compButtons= new Composite(shell, SWT.BORDER);		    
 		compButtons.setLayoutData(compositeImportData);
-		compButtons.setLayout(new GridLayout(2, false));
+		gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		gl.marginBottom=0;
+		compButtons.setLayout(gl);
 
 
 		//create done button

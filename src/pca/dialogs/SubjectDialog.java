@@ -313,7 +313,9 @@ public class SubjectDialog {
 		Composite buttonlayout = new Composite(shell, SWT.BORDER);
 		GridData compositeImportData = new GridData(SWT.FILL, SWT.FILL, true, false);
 		buttonlayout.setLayoutData(compositeImportData);
-		buttonlayout.setLayout(new GridLayout(2, false));
+		GridLayout gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		buttonlayout.setLayout(gl);
 
 		// Use a label full of spaces to show the colour
 
@@ -329,9 +331,12 @@ public class SubjectDialog {
 		buttonCol.setText("Change Icon");
 
 		//create done button		    
-		Composite compButtons= new Composite(shell, SWT.BORDER);		    
+		Composite compButtons= new Composite(shell, SWT.BORDER);
+		compositeImportData = new GridData(SWT.FILL, SWT.FILL, true, false);
 		compButtons.setLayoutData(compositeImportData);
-		compButtons.setLayout(new GridLayout(2, false));
+		gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		compButtons.setLayout(gl);
 
 		Button donebutton = new Button(compButtons, SWT.NONE);
 		donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); 

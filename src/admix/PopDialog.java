@@ -90,9 +90,8 @@ public class PopDialog {
 	}
 
 	private void createContents(final Shell shell, final Display display) {
-		shell.setLayout(new GridLayout(1, false));
+		shell.setLayout(new GridLayout());
 		GridData gd = new GridData(SWT.FILL,SWT.FILL,true,true);
-		//heading
 		Label heading = new Label(shell, SWT.CENTER);
 		heading.setLayoutData(gd);
 		heading.setText(group.getName());	
@@ -104,7 +103,6 @@ public class PopDialog {
 		Label changeName = new Label(shell, SWT.CENTER);
 		changeName.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true));
 		changeName.setText("            Enter a Display Name:            ");
-
 		Text textName=new Text(shell, SWT.CENTER|SWT.BORDER);
 		GridData td = new GridData(SWT.FILL,SWT.FILL,true,true);
 		textName.setLayoutData(td);
@@ -112,18 +110,24 @@ public class PopDialog {
 		textName.setSelection(textName.getText().length());//sets the caret to the end
 
 		Button deleteBox = new Button(shell, SWT.CHECK);
-		deleteBox.setText("Hide this Group from the graph");		
+		deleteBox.setText("Hide this group from the graph");		
 		deleteBox.setSelection(!group.getVisible());
 
-		Composite compOrder= new Composite(shell, SWT.BORDER);		    
-		compOrder.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
-		compOrder.setLayout(new GridLayout(2, false));
+		Composite compOrder= new Composite(shell, SWT.BORDER);
+		GridData gdc=new GridData(GridData.CENTER, GridData.FILL, false, false);
+		gdc.heightHint=60;
+		compOrder.setLayoutData(gdc);
+		GridLayout fl=new GridLayout(2,false);
+		fl.marginHeight=30;
+		compOrder.setLayout(fl);
 
 		buttonInc = new Button(compOrder, SWT.NONE);
-		buttonInc.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		gdc=new GridData(GridData.FILL, GridData.FILL, true, true);
+		buttonInc.setLayoutData(gdc); //*
 
 		buttonDec = new Button(compOrder, SWT.NONE);
-		buttonDec.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		gdc=new GridData(GridData.FILL, GridData.FILL, false, false);
+		buttonDec.setLayoutData(gdc); //*
 
 		buttonInc.addSelectionListener(new ShiftButtons(true));
 		buttonDec.addSelectionListener(new ShiftButtons(false));
@@ -138,19 +142,23 @@ public class PopDialog {
 			buttonDec.setText("Shift Group Down");
 		}
 
-		Composite compButtons= new Composite(shell, SWT.BORDER);		    
-		compButtons.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
-		compButtons.setLayout(new GridLayout(2, false));
+		Composite compButtons= new Composite(shell, SWT.BORDER);
+		gdc=new GridData(GridData.FILL, GridData.FILL, false,false);
+		gdc.heightHint=60;
+		compButtons.setLayoutData(gdc);
+		fl=new GridLayout(2,false);
+		fl.marginHeight=30;
+		compButtons.setLayout(fl);
 
 		Button donebutton = new Button(compButtons, SWT.NONE);
-		donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		donebutton.setLayoutData(new GridData(GridData.FILL, GridData.FILL, false, false)); //*
 		donebutton.setText("Done");
 
 		donebutton.addSelectionListener(new DoneButton(shell,textName,deleteBox));
 
 
 		Button canbutton = new Button(compButtons, SWT.NONE);
-		canbutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		canbutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false)); //*
 		canbutton.setText("Cancel");		    
 
 		canbutton.addSelectionListener(new SelectionAdapter() {

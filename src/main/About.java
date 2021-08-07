@@ -76,8 +76,8 @@ public class About {
 		createEmptyLabel() ;
 		
 		newAboutLabel("Genesis ".concat(Main.version).concat(" -- program for creating structure and PCA plots of genotype data"),51);
-		newAboutLabel(" Copyright (C) 2014. Robert W Buchmann, University of the Witwatersrand,",92);
-		newAboutLabel(" Johannesburg. This program is free software: you can redistribute it and/or modify",166);
+		newAboutLabel(" Copyright (C) 2014-2021. University of the Witwatersrand, Johannesburg",92);
+		newAboutLabel("Authors: Robert Buchmann with minor updates form Scott Hazelhurst. This program is free software: you can redistribute it and/or modify",166);
 		newAboutLabel(" it under the terms of the GNU Affero General Public License as published by",208);
 		newAboutLabel(" the Free Software Foundation.",255);
 		
@@ -130,7 +130,7 @@ public class About {
 		mainWindow.setText("Welcome to Genesis");
 
 		Rectangle bds = new Rectangle(mainWindow.getDisplay().getBounds().width/2-290, 
-				mainWindow.getDisplay().getBounds().height/2-163, 580, 326);
+				mainWindow.getDisplay().getBounds().height/2-163, 780, 326);
 		mainWindow.setBounds(bds);	
 		return mainWindow;		
 	}

@@ -19,6 +19,34 @@ You can download documentation and examples. While you can do all of this indivi
 git clone https://github.com/shaze/genesis
 
 
+#------ Making your own version
+
+Download the following platform-independent jars
+
+org.eclipse.core.commands-3.10.0.jar
+org.eclipse.core.runtime-3.7.0.jar
+batik-all-1.8pre-r1084380.jar         org.eclipse.equinox.common-3.15.0.jar
+itextpdf-5.5.9.jar                    org.eclipse.jface-3.6.0.jar
+jfreechart-1.5.3.jar                  org.w3c.dom.svg-1.1.0.jar
+jfreesvg-3.4.1.jar
+
+Move to the src directory and while there for each of the above do
+
+for j in org.eclipse.core.commands-3.10.0.jar org.eclipse.core.runtime-3.7.0.jar batik-all-1.8pre-r1084380.jar         org.eclipse.equinox.common-3.15.0.jar itextpdf-5.5.9.jar org.eclipse.jface-3.6.0.jar jfreechart-1.5.3.jar org.w3c.dom.svg-1.1.0.jar jfreesvg-3.4.1.jar; do
+    jar -xf $x; 
+  done
+
+
+Download the swt.jar specific for your platform
+
+run
+    make
+
+I've tested this with Java 8 and Java 11
+
+
+
+
 
 
 

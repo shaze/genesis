@@ -79,14 +79,16 @@ public class SubjectDialog {
 		GridData gd = new GridData(SWT.FILL,SWT.FILL,true,true);
 		//heading
 		Label heading = new Label(shell, SWT.CENTER);
-		heading.setLayoutData(gd);
+		//heading.setLayoutData(gd);
 		heading.setText(subject.getName());	
 		//position data
+		gd = new GridData(SWT.FILL,SWT.FILL,true,true);		
 		Label coords = new Label(shell, SWT.CENTER);
-		coords.setLayoutData(gd);
+		//coords.setLayoutData(gd);
 
 		Label labelBlank3 = new Label(shell, SWT.CENTER);
-		labelBlank3.setLayoutData(gd);
+		gd = new GridData(SWT.FILL,SWT.FILL,true,true);		
+		//labelBlank3.setLayoutData(gd);
 		labelBlank3.setText("--------------------");
 
 		if (subject.isReceivedPheno()){
@@ -99,22 +101,25 @@ public class SubjectDialog {
 	
 
 		Label labelBlank9 = new Label(shell, SWT.CENTER);
-		labelBlank9.setLayoutData(gd);
+		gd = new GridData(SWT.FILL,SWT.FILL,true,true);
+		//labelBlank9.setLayoutData(gd);
 		labelBlank9.setText("                                                  ");	
 
+		Composite compButtons= new Composite(shell, SWT.BORDER);
+		GridLayout gl =new GridLayout(2, false);
+		gl.marginTop=35;
+                compButtons.setLayout(gl);
 		GridData gd2 = new GridData(SWT.FILL, SWT.FILL, true, false);
-		Composite compButtons= new Composite(shell, SWT.BORDER);		    
 		compButtons.setLayoutData(gd2);
-		compButtons.setLayout(new GridLayout(2, false));
 
 		Button donebutton = new Button(compButtons, SWT.NONE);
-		donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		//donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
 		donebutton.setText("Done");
 
 
 
 		Button canbutton = new Button(compButtons, SWT.NONE);
-		canbutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		//canbutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
 		canbutton.setText("Cancel");		    
 
 		canbutton.addSelectionListener(new SelectionAdapter() {
@@ -135,7 +140,7 @@ public class SubjectDialog {
 	private void createPhenoPanel(Shell shell) {
 		GridData gd = new GridData(SWT.FILL,SWT.FILL,true,true);
 		Label labelPheno = new Label(shell, SWT.CENTER);
-		labelPheno.setLayoutData(gd);
+		//labelPheno.setLayoutData(gd);
 		labelPheno.setText("Phenotype Data:");
 
 		Composite comp = new Composite(shell, SWT.BORDER);
@@ -145,12 +150,14 @@ public class SubjectDialog {
 
 		for(String str:subject.getPhenotypeData()){
 			Label n = new Label(comp, SWT.LEFT);
-			n.setLayoutData(gd);
+			//gd = new GridData(SWT.FILL,SWT.FILL,true,true);			
+			//n.setLayoutData(gd);
 			n.setText("      "+str);
 		}
 
 		Label labelBlank6 = new Label(shell, SWT.CENTER);
-		labelBlank6.setLayoutData(gd);
+		//gd = new GridData(SWT.FILL,SWT.FILL,true,true);		
+		//labelBlank6.setLayoutData(gd);
 		labelBlank6.setText("             ");
 		
 	}

@@ -112,38 +112,37 @@ public class AdmixGroupDialog {
 	private Button buttonInc, buttonDec;
 	
 	private void createContents() {
-		shell.setLayout(new GridLayout(1, false));
+   	        GridLayout gl = new GridLayout(1, false);
+		shell.setLayout(gl);
 
-		GridData gd = new GridData(SWT.FILL,SWT.FILL,true,true);
-		gd.heightHint=25;
+		GridData gd = new GridData(GridData.FILL,GridData.FILL,false,false);
 		Label heading = new Label(shell, SWT.CENTER);
 
-		heading.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true));
+		heading.setLayoutData(new GridData(SWT.FILL,SWT.FILL,false,false));
 		heading.setText("Ancestor: "+group.getDisplayName()+"");
 		//This creates a label
-		Label Label1 = new Label(shell, SWT.CENTER);
-		Label1.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true));
+		Label Label1 = new Label(shell,GridData.FILL);
+		Label1.setLayoutData(new GridData(SWT.FILL,SWT.FILL,false,false));
 		Label1.setText("                  Select Colour for Ancestor                   ");
 
 		// Start with previous colour
 		col = new Color(shell.getDisplay(),oldColour);
-
-		//creates grid for buttons
 		Composite buttonlayout = new Composite(shell, SWT.BORDER);
-		GridData compositeImportData = new GridData(SWT.FILL, SWT.FILL, true, false);
+		GridData compositeImportData
+		    = new GridData(GridData.FILL, GridData.FILL, true, false);
 		buttonlayout.setLayoutData(compositeImportData);
-		buttonlayout.setLayout(new GridLayout(2, false));
-
-		// Use a label full of spaces to show the colour
+		GridLayout layout= new GridLayout(2, false);
+		layout.marginTop=25;
+		layout.marginBottom=0;				
+		buttonlayout.setLayout(layout);
 
 		final Label labelColour = new Label(buttonlayout, SWT.PUSH);
-		labelColour.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true));		    
+		labelColour.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,false));		    
 		labelColour.setText("   ");
 		labelColour.setBackground(new Color(UI.display,oldColour));		    
 
-		//create change colour buttons
 		Button button = new Button(buttonlayout, SWT.NONE);
-		button.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); 
+		button.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false)); 
 		button.setText("Select Colour");
 
 		Label blank = new Label(shell, SWT.CENTER);
@@ -151,7 +150,7 @@ public class AdmixGroupDialog {
 		blank.setText("                                                  ");
 
 		Label changeName = new Label(shell, SWT.CENTER);
-		changeName.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true));
+		changeName.setLayoutData(new GridData(SWT.FILL,SWT.FILL,false,false));
 		changeName.setText("Enter a Display Name:");
 
 		Text textBox=new Text(shell, SWT.CENTER|SWT.BORDER);
@@ -160,15 +159,18 @@ public class AdmixGroupDialog {
 		textBox.setText(group.getDisplayName());
 
 		Composite compOrder= new Composite(shell, SWT.BORDER);		    
+		compositeImportData
+		    = new GridData(GridData.FILL, GridData.FILL, true, false);
 		compOrder.setLayoutData(compositeImportData);
-		compOrder.setLayout(new GridLayout(2, false));
+		layout= new GridLayout(2, false)
+;		layout.marginTop=25;
+		layout.marginBottom=0;		
+		compOrder.setLayout(layout);
 
 		buttonInc = new Button(compOrder, SWT.NONE);
-		buttonInc.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); 		   		
-
+		buttonInc.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false,false));    
 		buttonDec = new Button(compOrder, SWT.NONE);
-		buttonDec.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-		
+		buttonDec.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
 		checkShiftButtonsEnabled();
 		
 		buttonInc.addSelectionListener(new ShiftButtons(true));
@@ -181,15 +183,20 @@ public class AdmixGroupDialog {
 			buttonDec.setText("Shift Right");
 		}
 		Composite compButtons= new Composite(shell, SWT.BORDER);		    
+		compositeImportData
+		    = new GridData(GridData.FILL, GridData.FILL, true, false);
 		compButtons.setLayoutData(compositeImportData);
-		compButtons.setLayout(new GridLayout(2, false));
+		layout= new GridLayout(2, false);
+		layout.marginTop=25;
+		layout.marginBottom=0;				
+		compButtons.setLayout(layout);
 
 		Button donebutton = new Button(compButtons, SWT.NONE);
-		donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false)); //*
 		donebutton.setText("Done");
 
 		Button canbutton = new Button(compButtons, SWT.NONE);
-		canbutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); //*
+		canbutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false)); //*
 		canbutton.setText("Cancel");
 		canbutton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {

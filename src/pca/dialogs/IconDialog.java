@@ -212,7 +212,10 @@ public class IconDialog {
 		Composite buttonlayout = new Composite(shell, SWT.BORDER);
 		GridData compositeImportData = new GridData(SWT.FILL, SWT.FILL, true, false);
 		buttonlayout.setLayoutData(compositeImportData);
-		buttonlayout.setLayout(new GridLayout(2, false));
+		GridLayout gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		gl.marginBottom=0;		
+		buttonlayout.setLayout(gl);
 
 		// Use a label full of spaces to show the colour
 
@@ -243,7 +246,10 @@ public class IconDialog {
 		//create done button		    
 		Composite compButtons= new Composite(shell, SWT.BORDER);		    
 		compButtons.setLayoutData(compositeImportData);
-		compButtons.setLayout(new GridLayout(2, false));
+		gl=new GridLayout(2, false);
+		gl.marginTop=35;
+		gl.marginBottom=0;
+		compButtons.setLayout(gl);
 
 		Button donebutton = new Button(compButtons, SWT.NONE);
 		donebutton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true)); 
