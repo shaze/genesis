@@ -1,6 +1,9 @@
 # genesis
 Population structure and PCA viewer
 
+August 2021 Updates (bug fixes -- system specific)
+*  http://www.bioinf.wits.ac.za/software/genesis/downloads
+
 Program takes as input output of PCA or admixture programs and allows user to interactively produce publication quality pictures. 
 
 * *the manual can be found in the _doc_ directory*
