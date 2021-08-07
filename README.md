@@ -22,7 +22,7 @@ You can download documentation and examples. While you can do all of this indivi
 git clone https://github.com/shaze/genesis
 
 
-#------ Making your own version
+# Making your own version
 
 Download the following platform-independent jars to the `src` directory
 
