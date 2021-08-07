@@ -46,7 +46,7 @@ for j in org.eclipse.core.commands-3.10.0.jar org.eclipse.core.runtime-3.7.0.jar
 Download the swt.jar specific for your platform to the `src` directory
 
 run
-    make
+    `make`
 
 I've tested this with Java 8 and Java 11
 
