@@ -5,7 +5,7 @@ Population structure and PCA viewer
 
 This GitHub site is for Genesis 1, which we regret can no longer be supported. We have redeveloped Genesis with a new framework.
 
-You can find our beta version on the [https://github.com/h3abionet/genesis2](Genesis 2 GitHub site)
+You can find our beta version on the [Genesis 2 GitHub site](https://github.com/h3abionet/genesis2/)
 
 * 
 
