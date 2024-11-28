@@ -1,13 +1,15 @@
 # genesis
 Population structure and PCA viewer
 
-* Genesis 2
+# Genesis 2
 
-This GitHub site is for Genesis 1, which we regret can no longer be supported. We have redeveloped Genesis with a new framework.
+This GitHub site is for Genesis 1, which we regret can no longer be supported. JAR files are availabe for Genesis 1 for Windows, Mac OS and Linux and should run as of November 2024. However no new development or bug fixes can be done
+
+We have redeveloped Genesis with a new framework. 
 
 You can find our beta version on the [Genesis 2 GitHub site](https://github.com/h3abionet/genesis2/)
 
-* 
+# Genesis 1
 
 
 August 2021 Updates (bug fixes -- system specific)
