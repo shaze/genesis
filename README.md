@@ -1,6 +1,15 @@
 # genesis
 Population structure and PCA viewer
 
+* Genesis 2
+
+This GitHub site is for Genesis 1, which we regret can no longer be supported. We have redeveloped Genesis with a new framework.
+
+You can find our beta version on the [https://github.com/h3abionet/genesis2](Genesis 2 GitHub site)
+
+* 
+
+
 August 2021 Updates (bug fixes -- system specific)
 *  http://www.bioinf.wits.ac.za/software/genesis/downloads
 
